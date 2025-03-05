@@ -1,0 +1,26 @@
+// Colors
+
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+$color-primary: #FFFFFF;
+$color-secondary: rbga($color-white, 70%);
+$color-placeholder: rgba($color-black, 40%);
+$color-active: #B4A9FF;
+$color-error: #FF7575;
+
+$color-bg-primary: #67A5EB;
+$color-bg-secondary: #393B3C;
+$color-bg-primary-disabled: #45526E;
+$color-bg-secondary-disabled: #747474;
+
+
+// Typography
+
+$ff-main: "Play", "Arial", sans-serif;
+
+
+// Viewport
+
+$vp-tablet: 1023px;
+$vp-mobile: 767px;
