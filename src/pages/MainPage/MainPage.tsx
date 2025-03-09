@@ -1,6 +1,8 @@
 import Button from '../../components/ui/Button/Button';
 import Container from '../../components/ui/Container/Container';
 import Input from '../../components/ui/Input/Input';
+import Logo from '../../components/ui/Logo/Logo';
+import LogoDark from '../../components/ui/LogoDark/LogoDark';
 import Rating from '../../components/ui/Rating/Rating';
 import TextButton from '../../components/ui/TextButton/TextButton';
 
@@ -19,6 +21,8 @@ const MainPage = () => {
         <Rating rating={7.5}/>
         <Rating rating={6.3}/>
         <Rating rating={4.2}/>
+        <Logo />
+        <LogoDark />
       </Container>
     </main>
   )

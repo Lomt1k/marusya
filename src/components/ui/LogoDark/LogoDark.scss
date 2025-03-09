@@ -1,0 +1,15 @@
+@use '/src/styles/global/' as *;
+
+.logo-dark {
+  display: flex;
+  align-items: center;
+
+  img {
+    width: auto;
+    height: 32px;
+
+    @include vp-767 {
+      height: 30px;
+    }
+  }
+}
