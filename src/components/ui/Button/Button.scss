@@ -1,0 +1,41 @@
+@use '/src/styles/global' as *;
+
+.button {
+  display: block;
+  margin: 0;
+  padding: 16px 48px;
+  border: none;
+  border-radius: 28px;
+  font-family: $ff-main;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  background-color: $color-bg-primary;
+  color: $color-primary;
+  cursor: pointer;
+  outline: none;
+  transition: color $transition-200,
+    background-color $transition-200;
+
+  &:hover:not([disabled]),
+  &:focus-visible:not([disabled]) {
+    background-color: $color-white;
+    color: $color-black;
+  }
+
+  &[disabled] {
+    background-color: $color-bg-primary-disabled;
+    color: $color-disabled;
+    cursor: default;
+  }
+
+  &--secondary {
+    background-color: $color-bg-secondary;
+    border: 1px solid $color-placeholder;
+    padding: 15px 47px;
+  }
+
+  &--secondary[disabled] {
+    background-color: $color-bg-secondary-disabled;
+  }
+}

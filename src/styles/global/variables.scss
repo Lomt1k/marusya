@@ -6,12 +6,13 @@ $color-black: #000000;
 $color-primary: #FFFFFF;
 $color-secondary: rbga($color-white, 70%);
 $color-placeholder: rgba($color-black, 40%);
+$color-disabled: rgba($color-white, 50%);
 $color-active: #B4A9FF;
 $color-error: #FF7575;
 
 $color-bg-primary: #67A5EB;
-$color-bg-secondary: #393B3C;
 $color-bg-primary-disabled: #45526E;
+$color-bg-secondary: #393B3C;
 $color-bg-secondary-disabled: #747474;
 
 
@@ -24,3 +25,8 @@ $ff-main: "Play", "Arial", sans-serif;
 
 $vp-tablet: 1023px;
 $vp-mobile: 767px;
+
+
+// Transitions
+
+$transition-200: 0.2s ease-in;
