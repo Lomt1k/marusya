@@ -1,4 +1,5 @@
 import Button from "../../components/ui/Button/Button";
+import Input from "../../components/ui/Input/Input";
 
 const MainPage = () => {
   return (
@@ -6,9 +7,9 @@ const MainPage = () => {
       <h1>Main Page</h1>
       <p>Welcome to the main page</p>
       <Button>О фильме</Button>
-      <Button disabled>О фильме</Button>
       <Button secondary>О фильме</Button>
-      <Button secondary disabled>О фильме</Button>
+      <Input type='email' name='test' placeholder='Электронная почта' icon={<div>XX</div>} />
+      <Input type='email' name='test' placeholder='Электронная почта' icon={<div>XX</div>} dark />
     </main>
   )
 }

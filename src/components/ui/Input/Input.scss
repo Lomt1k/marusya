@@ -1,0 +1,89 @@
+@use '/src/styles/global' as *;
+
+.input {
+  display: block;
+  position: relative;
+  width: 100%;
+  $root: &;
+
+  &__field {
+    width: 100%;
+    padding: 15px 15px 15px 51px;
+    background-color: $color-white;
+    color: $color-black;
+    font-family: $ff-main;
+    font-size: 18px;
+    line-height: 24px;
+    border: 1px solid $color-placeholder;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color $transition-200;
+
+    &:hover:not([disabled]),
+    &:focus-visible:not([disabled]) {
+      border-color: $color-active;
+    }
+
+    &:hover:not([disabled]) ~ #{$root}__icon {
+      color: $color-active;
+    }
+
+    &::placeholder {
+      color: $color-placeholder;
+    }
+
+    &:disabled {
+      background-color: $color-disabled;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    content: '';
+    left: 16px;
+    top: 16px;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    color: $color-placeholder;
+    transition: color $transition-200;
+  }
+
+  &__error {
+    display: block;
+    color: $color-error;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  &--dark #{$root}__field {
+    background-color: $color-bg-secondary;
+    border-color: $color-bg-secondary;
+    color: $color-white;
+
+    &::placeholder {
+      color: $color-disabled;
+    }
+
+    &:disabled {
+      background-color: $color-bg-secondary-disabled;
+    }
+  }
+
+  &--dark #{$root}__icon {
+    color: $color-disabled;
+  }
+
+  &--error #{$root}__field {
+    border-color: $color-error;
+    margin-bottom: 5px;
+  }
+
+  &--error #{$root}__icon {
+    color: $color-error;
+  }
+  
+}
