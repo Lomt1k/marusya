@@ -1,21 +1,21 @@
 import './Button.scss';
-import { FC, ReactNode } from "react";
+import { FC, ReactNode } from 'react';
 
 type ButtonProps = {
   children: ReactNode
+  onClick: Function;
   secondary?: boolean
   submit?: boolean;
   disabled?: boolean;
-  onClick?: Function
 }
 
-const Button: FC<ButtonProps> = ({ children, secondary, submit, disabled, onClick }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, secondary, submit, disabled }) => {
   return (
     <button
-      className={"button" + (secondary ? ' button--secondary' : '')}
-      type={submit ? "submit" : "button"}
+      className={'button' + (secondary ? ' button--secondary' : '')}
+      type={submit ? 'submit' : 'button'}
       disabled={disabled}
-      onClick={() => { if (onClick) onClick(); }}
+      onClick={() => onClick()}
     >
       {children}
     </button>
