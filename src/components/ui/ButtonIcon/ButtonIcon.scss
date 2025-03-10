@@ -1,0 +1,14 @@
+.button-icon {
+  color: var(--color-primary);
+  background-color: unset;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: color var(--transition-200);
+  line-height: 0;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-active);
+  }
+}

@@ -4,6 +4,8 @@ import Search from './Search';
 import Container from '../ui/Container/Container';
 import Logo from '../ui/Logo/Logo';
 import GenresLink from './Buttons/GenresLink';
+import SearchButton from './Buttons/SearchButton';
+import ProfileButton from './Buttons/ProfileButton';
 
 const Header = () => {
   return (
@@ -17,6 +19,8 @@ const Header = () => {
           </div>
           <div className='header__buttons'>
             <GenresLink />
+            <SearchButton />
+            <ProfileButton />
           </div>
         </div>
       </Container>

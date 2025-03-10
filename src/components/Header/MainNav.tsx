@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router';
+import NavigationLink from '../ui/NavigationLink/NavigationLink';
 import './MainNav.scss';
 
 interface NavLinkData {
@@ -23,12 +23,9 @@ const MainNav = () => {
       <ul className="main-nav__list">
         {datas.map(data =>
           <li key={data.path}>
-            <NavLink
-              to={data.path}
-              className={({ isActive }) => ('main-nav__link' + (isActive ? ' main-nav__link--active' : ''))}
-            >
+            <NavigationLink to={data.path} >
               {data.text}
-            </NavLink>
+            </NavigationLink>
           </li>
         )}
       </ul>

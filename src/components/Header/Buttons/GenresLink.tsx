@@ -4,8 +4,8 @@ import IconGenres from '/src/assets/icons/genres.svg?react';
 
 const GenresLink = () => {
   return (
-    <Link to='/genres'>
-      <IconGenres width={24}/>
+    <Link className='genres-link' to='/genres'>
+      <IconGenres width={24} height={24}/>
     </Link>
   )
 }

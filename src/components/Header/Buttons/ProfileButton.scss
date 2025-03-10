@@ -1,0 +1,28 @@
+.profile-button {
+  line-height: 0;
+
+  &__icon {
+    display: none;
+
+    @include vp-767 {
+      display: block;
+    }
+  }
+
+  &__text {
+    font-family: var(--ff-main);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+
+    @include vp-767 {
+      display: none;
+    }
+  }
+
+  &__nav-link {
+    @include vp-767 {
+      display: none;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-.text-button {
+.button-text {
   display: block;
   padding: 0;
   text-align: center;
@@ -10,11 +10,15 @@
   outline: none;
   cursor: pointer;
   background-color: transparent;
-  color: var(--color-black);
+  color: var(--color-primary);
   transition: color var(--transition-200);
   
   &:hover,
   &:focus-visible {
     color: var(--color-active);
+  }
+
+  &--dark {
+    color: var(--color-black);
   }
 }

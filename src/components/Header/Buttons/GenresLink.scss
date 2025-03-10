@@ -1,4 +1,15 @@
 .genres-link {
-  display: block;
+  display: none;
+  line-height: 0;
   color: var(--color-primary);
+  outline: none;
+
+  @include vp-767 {
+    display: block;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-active);
+  }
 }
