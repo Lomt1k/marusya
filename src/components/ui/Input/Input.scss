@@ -24,7 +24,8 @@
       border-color: $color-active;
     }
 
-    &:hover:not([disabled]) ~ #{$root}__icon {
+    &:hover:not([disabled]) ~ #{$root}__icon,
+    &:focus-visible:not([disabled]) ~ #{$root}__icon {
       color: $color-active;
     }
 
@@ -44,7 +45,8 @@
     position: absolute;
     content: '';
     left: 16px;
-    top: 16px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 24px;
     height: 24px;
     pointer-events: none;

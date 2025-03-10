@@ -1,0 +1,15 @@
+@use '/src/styles/global/' as *;
+
+.search {
+  width: 100%;
+
+  @include vp-767 {
+    display: none;
+  }
+
+  .input__field {
+    font-size: 18px;
+    line-height: 24px;
+    padding: 11px 15px 11px 51px;
+  }
+}

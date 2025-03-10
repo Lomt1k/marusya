@@ -1,0 +1,27 @@
+@use '/src/styles/global/' as *;
+
+.main-nav {
+  @include vp-767 {
+    display: none;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 40px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    font-size: 24px;
+    line-height: 32px;
+    
+    &--active {
+      border-bottom: 1.5px solid $color-heliotrope;
+    }
+  }
+}

@@ -2,7 +2,7 @@ import './LogoDark.scss';
 import { FC } from 'react';
 import { Link } from 'react-router';
 
-const Logo: FC = () => {
+const LogoDark: FC = () => {
   return (
     <Link className='logo-dark' to='/'>
       <img
@@ -14,4 +14,4 @@ const Logo: FC = () => {
   )
 }
 
-export default Logo;
+export default LogoDark;

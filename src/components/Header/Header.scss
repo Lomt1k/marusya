@@ -1,0 +1,20 @@
+.header {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 80px;
+    padding: 24px 0;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 20px;
+  }
+}
