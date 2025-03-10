@@ -1,5 +1,3 @@
-@use '/src/styles/global/' as *;
-
 .main-nav {
   @include vp-767 {
     display: none;
@@ -21,7 +19,7 @@
     line-height: 32px;
     
     &--active {
-      border-bottom: 1.5px solid $color-heliotrope;
+      border-bottom: 1.5px solid var(--color-heliotrope);
     }
   }
 }

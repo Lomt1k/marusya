@@ -1,38 +1,41 @@
-// Colors
+:root {
+  // Colors
 
-$color-white: #FFFFFF;
-$color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
 
-$color-primary: #FFFFFF;
-$color-secondary: rbga($color-white, 70%);
-$color-placeholder: rgba($color-black, 40%);
-$color-disabled: rgba($color-white, 50%);
-$color-active: #B4A9FF;
-$color-error: #FF7575;
+  --color-primary: #FFFFFF;
+  --color-secondary: rbga(--color-white, 70%);
+  --color-placeholder: rgba(--color-black, 40%);
+  --color-disabled: rgba(--color-white, 50%);
+  --color-active: #B4A9FF;
+  --color-error: #FF7575;
 
-$color-bg-primary: #67A5EB;
-$color-bg-primary-disabled: #45526E;
-$color-bg-secondary: #393B3C;
-$color-bg-secondary-disabled: #747474;
+  --color-bg-primary: #67A5EB;
+  --color-bg-primary-disabled: #45526E;
+  --color-bg-secondary: #393B3C;
+  --color-bg-secondary-disabled: #747474;
 
-$color-lucky: #A59400;
-$color-forest-green: #308E21;
-$color-grey: #777777;
-$color-fire-brick: #C82020;
-$color-heliotrope: #DC5DFC;
-
-
-// Typography
-
-$ff-main: "Play", "Arial", sans-serif;
+  --color-lucky: #A59400;
+  --color-forest-green: #308E21;
+  --color-grey: #777777;
+  --color-fire-brick: #C82020;
+  --color-heliotrope: #DC5DFC;
 
 
-// Viewport
+  // Typography
 
-$vp-tablet: 1023px;
-$vp-mobile: 767px;
+  --ff-main: "Play", "Arial", sans-serif;
 
 
-// Transitions
+  // Viewport
 
-$transition-200: 0.2s ease-in;
+  --vp-tablet: 1023px;
+  --vp-mobile: 767px;
+
+
+  // Transitions
+
+  --transition-200: 0.2s ease-in;
+  
+}

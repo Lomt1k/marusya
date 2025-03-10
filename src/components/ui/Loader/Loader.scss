@@ -1,7 +1,5 @@
-@use '/src/styles/global' as *;
-
 .loader {
-  $color: $color-bg-primary;
+  $color: var(--color-bg-primary);
   margin: auto;
   width: 48px;
   aspect-ratio: 1;

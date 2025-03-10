@@ -1,5 +1,3 @@
-@use '/src/styles/global/' as *;
-
 .rating {
   width: 70px;
   display: flex;
@@ -8,8 +6,8 @@
   gap: 4px;
   padding: 4px 12px;
   border-radius: 16px;
-  background-color: $color-lucky;
-  color: $color-primary;
+  background-color: var(--color-lucky);
+  color: var(--color-primary);
   font-size: 18px;
   line-height: 24px;
   font-weight: 700;
@@ -33,14 +31,14 @@
   }
 
   &--good {
-    background-color: $color-forest-green;
+    background-color: var(--color-forest-green);
   }
 
   &--normal {
-    background-color: $color-grey;
+    background-color: var(--color-grey);
   }
 
   &--bad {
-    background-color: $color-fire-brick;
+    background-color: var(--color-fire-brick);
   }  
 }

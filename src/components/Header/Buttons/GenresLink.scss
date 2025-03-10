@@ -1,6 +1,4 @@
-@use '/src/styles/global/' as *;
-
 .genres-link {
   display: block;
-  color: $color-primary;
+  color: var(--color-primary);
 }
