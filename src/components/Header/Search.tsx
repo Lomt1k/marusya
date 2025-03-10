@@ -5,6 +5,7 @@ import Input from '../ui/Input/Input';
 const Seacrh = () => {
   const handleInput = (value: string) => {
     // TODO
+    console.log(value);
   }
 
   return (
@@ -13,7 +14,7 @@ const Seacrh = () => {
         type='search'
         name='search'
         placeholder='Поиск'
-        icon={<IconSearch width={21} height={21} />}
+        icon={<IconSearch width={24} height={24} />}
         onInput={handleInput}
       />
     </div>
