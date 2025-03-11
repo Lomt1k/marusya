@@ -4,7 +4,7 @@ import { Movie } from '../../api/Movie';
 import Container from '../ui/Container/Container';
 import Image from '../ui/Image/Image';
 import './MovieSection.scss';
-import Skeleton from '../ui/Skeleton/Skeleton';
+import Skeleton from '../ui/SkeletonLoader/SkeletonLoader';
 import Heading from '../ui/Heading/Heading';
 
 type MovieSectionProps = {

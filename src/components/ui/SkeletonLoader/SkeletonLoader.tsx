@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import './Skeleton.scss';
+import './SkeletonLoader.scss';
 
 type SkeletonProps = {
   className?: string;
@@ -12,7 +12,7 @@ const Skeleton: FC<SkeletonProps> = ({ className, linesCount }) => {
   return (
     <rect
       style={style}
-      className={`skeleton ${className}`}
+      className={`skeleton-loader ${className}`}
     />
   )
 }
