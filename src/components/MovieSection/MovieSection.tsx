@@ -54,7 +54,7 @@ const MovieSection: FC<MovieSectionProps> = ({ movie, random }) => {
               }
             </div>
           </div>
-          <Image className='movie-section__img' src={movie?.backdropUrl ?? movie?.posterUrl} alt={movie?.title ?? ''} />
+          <Image className='movie-section__img' src={movie?.posterUrl} alt={movie?.title ?? ''} />
         </div>
       </Container>
     </section>
