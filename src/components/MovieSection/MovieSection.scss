@@ -3,6 +3,7 @@
     padding: 32px 0 0 0;
     display: grid;
     grid-template-columns: 1fr auto;
+    align-items: center;
     gap: 20px;
   }
 
@@ -19,11 +20,31 @@
     gap: 16px;
   }
 
+  &__info-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--color-secondary);
+    font-size: 18px;
+    line-height: 24px;
+    text-transform: lowercase;
+  }
+
   &__plot {
     margin: 0;
     color: var(--color-secondary);
     font-size: 24px;
     line-height: 32px;
+
+    @include vp-767 {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
   }
 
   &__img {

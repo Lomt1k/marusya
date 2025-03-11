@@ -2,9 +2,9 @@ import './Button.scss';
 import { FC, ReactNode } from 'react';
 
 type ButtonProps = {
-  children: ReactNode
+  children: ReactNode;
   onClick: Function;
-  secondary?: boolean
+  secondary?: boolean;
   submit?: boolean;
   disabled?: boolean;
 }

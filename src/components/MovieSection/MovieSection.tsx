@@ -6,6 +6,10 @@ import Image from '../ui/Image/Image';
 import './MovieSection.scss';
 import Skeleton from '../ui/SkeletonLoader/SkeletonLoader';
 import Heading from '../ui/Heading/Heading';
+import Rating from '../ui/Rating/Rating';
+import Button from '../ui/Button/Button';
+import ButtonLink from '../ui/Button/ButtonLink';
+import { getLocalizedGenres, getRuntimeString } from '../../utils/MovieHelper';
 
 type MovieSectionProps = {
   movie: Movie | undefined;
@@ -22,12 +26,19 @@ const MovieSection: FC<MovieSectionProps> = ({ movie, random }) => {
               {movie
                 ? (
                   <>
+                    <div className="movie-section__info-top">
+                      <Rating rating={movie.tmdbRating} />
+                      <span>{movie.releaseYear}</span>
+                      <span>{getLocalizedGenres(movie.genres)}</span>
+                      <span>{getRuntimeString(movie.runtime)}</span>
+                    </div>
                     <Heading level={random ? 2 : 1} visual={1} >{movie.title}</Heading>
                     <p className='movie-section__plot'>{movie.plot}</p>
                   </>
                 )
                 : (
                   <>
+                    <Skeleton linesCount={1.3} width='50%' />
                     <Skeleton linesCount={2.5} />
                     <Skeleton linesCount={7} />
                   </>
@@ -35,7 +46,12 @@ const MovieSection: FC<MovieSectionProps> = ({ movie, random }) => {
               }
             </div>
             <div className="movie-section__buttons">
-
+              {movie &&
+                <>
+                  <Button onClick={() => { }} >Трейлер</Button>
+                  {random && <ButtonLink secondary to={`/movie/${movie.id}`}>О фильме</ButtonLink>}
+                </>
+              }
             </div>
           </div>
           <Image className='movie-section__img' src={movie?.backdropUrl ?? movie?.posterUrl} alt={movie?.title ?? ''} />
