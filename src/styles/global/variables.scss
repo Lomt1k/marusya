@@ -5,9 +5,9 @@
   --color-black: #000000;
 
   --color-primary: #FFFFFF;
-  --color-secondary: rbga(--color-white, 70%);
-  --color-placeholder: rgba(--color-black, 40%);
-  --color-disabled: rgba(--color-white, 50%);
+  --color-secondary: rgba(255, 255, 255, 0.7);
+  --color-placeholder: rgba(0, 0, 0, 40%);
+  --color-disabled: rgba(255, 255, 255, 0.5);
   --color-active: #B4A9FF;
   --color-error: #FF7575;
 

@@ -2,10 +2,10 @@ import { useRandomMovie } from "../../hooks/useRandomMovie";
 import MovieSection from "./MovieSection"
 
 const RandomMovieSection = () => {
-  const { movie, isLoading, error } = useRandomMovie();
+  const { movie } = useRandomMovie();
 
   return (
-    <MovieSection random movie={movie} loading={isLoading} />
+    <MovieSection random movie={movie} />
   )
 }
 
