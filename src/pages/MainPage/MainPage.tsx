@@ -1,4 +1,5 @@
 import RandomMovieSection from '../../components/MovieSection/RandomMovieSection';
+import TopMovies from '../../components/Sections/TopMovies/TopMovies';
 import Heading from '../../components/ui/Heading/Heading';
 
 const MainPage = () => {
@@ -9,6 +10,7 @@ const MainPage = () => {
         Маруся - стриминговый сервис для поиска фильмов
       </Heading>
       <RandomMovieSection />
+      <TopMovies />
     </main>
   )
 }

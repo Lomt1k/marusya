@@ -2,7 +2,7 @@ import './Container.scss';
 import { FC, ReactNode } from 'react';
 
 type ContainerProps = {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const Container: FC<ContainerProps> = ({ children }) => {
