@@ -3,7 +3,7 @@ import { Movie } from "../../api/Movie";
 import { Link } from "react-router";
 import Image from '../ui/Image/Image';
 import './MovieCard.scss';
-import Skeleton from "../ui/SkeletonLoader/SkeletonLoader";
+import Skeleton from "../ui/Skeleton/Skeleton";
 import { memo } from "react";
 
 type MovieCardProps = {

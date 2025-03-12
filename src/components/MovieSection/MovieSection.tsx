@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Movie } from '../../api/Movie';
 import Container from '../ui/Container/Container';
 import Image from '../ui/Image/Image';
-import Skeleton from '../ui/SkeletonLoader/SkeletonLoader';
+import Skeleton from '../ui/Skeleton/Skeleton';
 import Heading from '../ui/Heading/Heading';
 import Rating from '../ui/Rating/Rating';
 import Button from '../ui/Button/Button';

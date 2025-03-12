@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import './SkeletonLoader.scss';
+import './Skeleton.scss';
 
 type SkeletonProps = {
   className?: string;
@@ -13,7 +13,7 @@ const Skeleton: FC<SkeletonProps> = ({ className, linesCount, width }) => {
   return (
     <div
       style={style}
-      className={`skeleton-loader ${className}`}
+      className={`skeleton ${className}`}
     />
   )
 }

@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import './Image.scss';
-import Skeleton from '../SkeletonLoader/SkeletonLoader';
+import Skeleton from '../Skeleton/Skeleton';
 
 type ImageProps = {
   src: string | null | undefined;
