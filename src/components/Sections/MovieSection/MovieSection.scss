@@ -1,22 +1,49 @@
 .movie-section {
   &__wrapper {
-    padding: 32px 0 0 0;
+    padding: 32px 0 0;
     display: grid;
     grid-template-columns: 580fr 680fr;
     align-items: center;
     gap: 20px;
+    
+
+    @media (max-width: 1400px) {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 24px;
+    }
+
+    @include vp-767 {
+      padding: 12px 0 0;
+    }
+
+    @media (max-width: 375px) {
+      padding: 0;
+    }
   }
 
   &__content {
     display: flex;
     flex-direction: column;
     gap: 60px;
+
+    @media (max-width: 1400px) {
+      align-self: stretch;
+    }
+
+    @include vp-767 {
+      gap: 32px;
+    }
   }
 
   &__info {
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    @include vp-767 {
+      gap: 12px;
+    }
   }
 
   &__info-top {
@@ -27,6 +54,11 @@
     font-size: 18px;
     line-height: 24px;
     text-transform: lowercase;
+
+    @include vp-767 {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 
   &__plot {
@@ -43,12 +75,27 @@
 
   &__buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 16px;
+
+    @media (max-width: 600px) {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+
+      .button:first-child {
+        grid-column: 1 / -1;
+      }
+    }
   }
 
   &__img {
     border-radius: 16px;
     aspect-ratio: 680 / 552;
     width: 100%;
+    max-width: 700px;
+
+    @media (max-width: 1400px) {
+      aspect-ratio: 3 / 2;
+    }
   }
 }

@@ -4,13 +4,32 @@
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 80px;
-    padding: 24px 0;
+    padding: 24px 0 24px;
+
+    @media (max-width: 1200px) {
+      gap: 20px;
+      padding: 20px 0 12px;
+    }
+
+    @include vp-767 {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
   }
 
   &__content {
     display: flex;
     align-items: center;
     gap: 40px;
+
+    @include vp-1023 {
+      gap: 20px;
+    }
+
+    @include vp-767 {
+      display: none;
+    }
   }
 
   &__buttons {
