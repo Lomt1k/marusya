@@ -1,4 +1,4 @@
-import { useRandomMovie } from "../../hooks/useRandomMovie";
+import { useRandomMovie } from "../../../hooks/useRandomMovie";
 import MovieSection from "./MovieSection"
 
 const RandomMovieSection = () => {

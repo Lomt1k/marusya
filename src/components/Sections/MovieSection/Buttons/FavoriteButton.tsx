@@ -1,7 +1,7 @@
 import IconFavorite from '/src/assets/icons/favorite.svg?react';
 import IconFavoriteFilled from '/src/assets/icons/favorite-filled.svg?react';
 import { FC } from "react";
-import ButtonIcon from '../../ui/ButtonIcon/ButtonIcon';
+import ButtonIcon from '../../../ui/ButtonIcon/ButtonIcon';
 
 type FavoriteButtonProps = {
   movieId: number;

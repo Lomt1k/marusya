@@ -1,6 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
 import IconRefresh from '/src/assets/icons/refresh.svg?react';
-import ButtonIcon from "../../ui/ButtonIcon/ButtonIcon";
+import ButtonIcon from "../../../ui/ButtonIcon/ButtonIcon";
 
 const RefreshMovieButton = () => {
   const queryClient = useQueryClient();

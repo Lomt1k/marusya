@@ -1,4 +1,4 @@
-import RandomMovieSection from '../../components/MovieSection/RandomMovieSection';
+import RandomMovieSection from '../../components/Sections/MovieSection/RandomMovieSection';
 import TopMovies from '../../components/Sections/TopMovies/TopMovies';
 import Heading from '../../components/ui/Heading/Heading';
 
