@@ -23,7 +23,7 @@ const Image: FC<ImageProps> = ({ src, alt, className, width, height, draggable }
           alt={alt}
           width={width}
           height={height}
-          draggable={draggable}
+          draggable={draggable ?? false}
           onLoad={() => setIsLoaded(true)}
         />
       }
