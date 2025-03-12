@@ -1,15 +1,17 @@
 import { FC } from 'react';
 import { Movie } from '../../api/Movie';
-
 import Container from '../ui/Container/Container';
 import Image from '../ui/Image/Image';
-import './MovieSection.scss';
 import Skeleton from '../ui/SkeletonLoader/SkeletonLoader';
 import Heading from '../ui/Heading/Heading';
 import Rating from '../ui/Rating/Rating';
 import Button from '../ui/Button/Button';
 import ButtonLink from '../ui/Button/ButtonLink';
 import { getLocalizedGenres, getRuntimeString } from '../../utils/MovieHelper';
+import EmptyBackdropImage from '/src/assets/images/emptyBackdrop.webp';
+import './MovieSection.scss';
+import FavoriteButton from './Buttons/FavoriteButton';
+import RefreshMovieButton from './Buttons/RefreshMovieButton';
 
 type MovieSectionProps = {
   movie: Movie | undefined;
@@ -50,11 +52,17 @@ const MovieSection: FC<MovieSectionProps> = ({ movie, random }) => {
                 <>
                   <Button onClick={() => { }} >Трейлер</Button>
                   {random && <ButtonLink secondary to={`/movie/${movie.id}`}>О фильме</ButtonLink>}
+                  <FavoriteButton movieId={movie.id} />
+                  {random && <RefreshMovieButton />}
                 </>
               }
             </div>
           </div>
-          <Image className='movie-section__img' src={movie?.posterUrl} alt={movie?.title ?? ''} />
+          <Image
+            className='movie-section__img'
+            src={movie ? (movie.backdropUrl ?? movie.posterUrl ?? EmptyBackdropImage) : ''}
+            alt={movie?.title ?? ''}
+          />
         </div>
       </Container>
     </section>

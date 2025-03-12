@@ -2,7 +2,7 @@
   &__wrapper {
     padding: 32px 0 0 0;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 580fr 680fr;
     align-items: center;
     gap: 20px;
   }
@@ -10,7 +10,6 @@
   &__content {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     gap: 60px;
   }
 
@@ -49,7 +48,7 @@
 
   &__img {
     border-radius: 16px;
-    width: 453px;
-    height: 680px;
+    aspect-ratio: 680 / 552;
+    width: 100%;
   }
 }

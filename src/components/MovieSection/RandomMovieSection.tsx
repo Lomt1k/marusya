@@ -2,7 +2,7 @@ import { useRandomMovie } from "../../hooks/useRandomMovie";
 import MovieSection from "./MovieSection"
 
 const RandomMovieSection = () => {
-  const { movie } = useRandomMovie();
+  const movie = useRandomMovie();
 
   return (
     <MovieSection random movie={movie} />

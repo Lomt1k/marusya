@@ -4,13 +4,14 @@ import { FC, ReactElement } from 'react';
 type ButtonIconProps = {
   icon: ReactElement;
   onClick: Function;
+  secondary?: boolean;
   className?: string;
 }
 
-const ButtonIcon: FC<ButtonIconProps> = ({ icon, onClick, className }) => {
+const ButtonIcon: FC<ButtonIconProps> = ({ icon, onClick, secondary, className }) => {
   return (
     <button
-      className={'button-icon' + (className ? ` ${className}` : '')}
+      className={`button-icon ${secondary ? 'button-icon--secondary' : ''} ${className}`}
       type='button'
       onClick={() => onClick()}
     >

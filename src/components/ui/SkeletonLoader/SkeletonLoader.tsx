@@ -11,7 +11,7 @@ const Skeleton: FC<SkeletonProps> = ({ className, linesCount, width }) => {
   const style = { "--lines-count": linesCount, width: width } as React.CSSProperties;
 
   return (
-    <rect
+    <div
       style={style}
       className={`skeleton-loader ${className}`}
     />

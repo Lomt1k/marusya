@@ -4,11 +4,34 @@
   border: none;
   cursor: pointer;
   outline: none;
-  transition: color var(--transition-200);
+  transition: color var(--transition-200),
+    background-color var(--transition-200);
   line-height: 0;
 
-  &:hover,
-  &:focus-visible {
+  &:hover:not([disabled]),
+  &:focus-visible:not([disabled]) {
     color: var(--color-active);
+  }
+
+  &[disabled] {
+    color: var(--color-disabled);
+    cursor: default;
+  }
+
+  &--secondary {
+    border: 1px solid var(--color-placeholder);
+    background-color: var(--color-bg-secondary);
+    padding: 15px 21px;
+    border-radius: 28px;
+
+    &:hover:not([disabled]),
+    &:focus-visible:not([disabled]) {
+      background-color: var(--color-white);
+      color: var(--color-black);
+    }
+
+    &[disabled] {
+      background-color: var(--color-bg-secondary-disabled);
+    }
   }
 }
