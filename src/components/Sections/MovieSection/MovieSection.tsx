@@ -7,11 +7,12 @@ import Heading from '../../ui/Heading/Heading';
 import Rating from '../../ui/Rating/Rating';
 import Button from '../../ui/Button/Button';
 import ButtonLink from '../../ui/Button/ButtonLink';
-import { getLocalizedGenres, getRuntimeString } from '../../../utils/MovieHelper';
 import EmptyBackdropImage from '/src/assets/images/emptyBackdrop.webp';
 import './MovieSection.scss';
 import FavoriteButton from './Buttons/FavoriteButton';
 import RefreshMovieButton from './Buttons/RefreshMovieButton';
+import StringHelper from '../../../utils/StringHelper';
+import MovieHelper from '../../../utils/MovieHelper';
 
 type MovieSectionProps = {
   movie: Movie | undefined;
@@ -31,11 +32,13 @@ const MovieSection: FC<MovieSectionProps> = ({ movie, random }) => {
                     <div className="movie-section__info-top">
                       <Rating rating={movie.tmdbRating} />
                       <span>{movie.releaseYear}</span>
-                      <span>{getLocalizedGenres(movie.genres)}</span>
-                      <span>{getRuntimeString(movie.runtime)}</span>
+                      <span>{MovieHelper.getLocalizedGenres(movie.genres)}</span>
+                      <span>{MovieHelper.getRuntimeString(movie.runtime)}</span>
                     </div>
                     <Heading level={random ? 2 : 1} visual={1} >{movie.title}</Heading>
-                    <p className='movie-section__plot'>{movie.plot}</p>
+                    <p className='movie-section__plot'>
+                      {random ? StringHelper.truncateText(movie.plot, 400) : movie.plot}
+                    </p>
                   </>
                 )
                 : (
