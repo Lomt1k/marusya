@@ -14,7 +14,8 @@
 
   &__img {
     display: block;
-    width: 224px;
+    max-width: 224px;
+    width: 100%;
     aspect-ratio: 2 / 3;
     border-radius: 16px;
     box-shadow: 0px 0px 80px 0px rgba(255, 255, 255, 0.33);
@@ -23,8 +24,8 @@
     transition: box-shadow var(--transition-200),
       border-color var(--transition-200);
 
-    @include vp-767 {
-      width: 100%;
+    @media (max-width: 375px) {
+      max-width: unset;
     }
 
     &--loading {
