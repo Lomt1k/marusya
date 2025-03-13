@@ -3,5 +3,10 @@
     padding: 40px 0 120px;
     display: grid;
     gap: 64px;
+
+    @include vp-1439 {
+      padding: 32px 0 120px;
+      gap: 40px;
+    }
   }
 }
