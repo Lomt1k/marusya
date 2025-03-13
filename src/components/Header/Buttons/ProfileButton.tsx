@@ -20,7 +20,7 @@ const ProfileLink = () => {
   return (
     <div className='profile-button'>
       <Link to='/account' className='profile-button__icon'>
-        <IconProfileLogged width={24} height={24} />
+        <IconProfileLogged width={32} height={32} />
       </Link>
       <NavigationLink to='/account' className='profile-button__nav-link'>
         {name}
@@ -38,7 +38,7 @@ const ProfileSignIn = () => {
     <div className='profile-button'>
       <ButtonIcon
         className='profile-button__icon'
-        icon={<IconProfile width={24} height={24} />}
+        icon={<IconProfile width={32} height={32} />}
         onClick={() => handleRegisterClick()}
       />
       <ButtonText

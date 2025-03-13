@@ -25,7 +25,7 @@
       height: 30px;
     }
 
-    @media (max-width: 375px) {
+    @include vp-375 {
       width: 24px;
       height: 24px;
     }

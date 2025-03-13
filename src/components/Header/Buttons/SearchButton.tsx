@@ -5,7 +5,7 @@ import IconSearch from '/src/assets/icons/search.svg?react';
 const SearchButton = () => {
   return (
     <ButtonIcon className='search-button'
-      icon={<IconSearch width={24} height={24}/>}
+      icon={<IconSearch width={28} height={28} />}
       onClick={() => {}}
     />
   )

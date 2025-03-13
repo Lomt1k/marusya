@@ -24,7 +24,7 @@
     transition: box-shadow var(--transition-200),
       border-color var(--transition-200);
 
-    @media (max-width: 375px) {
+    @include vp-375 {
       max-width: unset;
     }
 
