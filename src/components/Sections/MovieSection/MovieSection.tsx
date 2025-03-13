@@ -16,17 +16,18 @@ import MovieHelper from '../../../utils/MovieHelper';
 
 type MovieSectionProps = {
   movie: Movie | undefined;
+  isFetching: boolean;
   random?: boolean;
 }
 
-const MovieSection: FC<MovieSectionProps> = ({ movie, random }) => {
+const MovieSection: FC<MovieSectionProps> = ({ movie, isFetching, random }) => {
   return (
     <section className='movie-section'>
       <Container>
         <div className='movie-section__wrapper'>
           <div className='movie-section__content'>
             <div className="movie-section__info">
-              {movie
+              {movie && !isFetching
                 ? (
                   <>
                     <div className="movie-section__info-top">
@@ -45,7 +46,7 @@ const MovieSection: FC<MovieSectionProps> = ({ movie, random }) => {
                   <>
                     <Skeleton linesCount={1.3} width='50%' />
                     <Skeleton linesCount={2.5} />
-                    <Skeleton linesCount={7} />
+                    <Skeleton linesCount={6} />
                   </>
                 )
               }

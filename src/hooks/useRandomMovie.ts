@@ -8,5 +8,6 @@ export function useRandomMovie() {
   });
 
   const movie: Movie | undefined = query.data;
-  return movie;
+  const isFetching = query.isFetching;
+  return { movie, isFetching };
 }
