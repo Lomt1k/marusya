@@ -12,7 +12,7 @@ const TopMovies = () => {
       <Container>
         <div className="top-movies__wrapper">
           <Heading level={2}>Топ 10 фильмов</Heading>
-          <MovieCardList horizontal top movies={movies} />
+          <MovieCardList carousel top movies={movies} />
         </div>
       </Container>
     </section>

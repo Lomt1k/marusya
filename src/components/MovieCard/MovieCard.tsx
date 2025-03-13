@@ -20,9 +20,8 @@ const MovieCard: FC<MovieCardProps> = ({ movie, topPosition }) => {
     <Link className="movie-card" to={`/movie/${movie.id}`}>
       {movie.posterUrl
         ? <Image className="movie-card__img" src={movie.posterUrl} alt={movie.title} />
-        : <span className="movie-card__img">{movie.title}</span>}
-      {topPosition &&
-        <span className='movie-card__pos'>{topPosition}</span>}
+        : <span className="movie-card__img movie-card__text">{movie.title}</span>}
+      {topPosition && <span className='movie-card__pos'>{topPosition}</span>}
     </Link>
   )
 }
