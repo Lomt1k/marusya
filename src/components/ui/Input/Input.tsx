@@ -15,7 +15,7 @@ type InputProps = {
 
 const Input: FC<InputProps> = ({ type, name, placeholder, icon, dark, required, disabled, error, onInput }) => {
   return (
-    <div className={"input" + (dark ? ' input--dark' : '') + (error ? ' input--error' : '')}>
+    <div className={`input ${dark ? 'input--dark' : ''} ${error ? 'input--error' : ''}`}>
       <input
         className='input__field'
         type={type}
@@ -23,7 +23,7 @@ const Input: FC<InputProps> = ({ type, name, placeholder, icon, dark, required, 
         placeholder={placeholder}
         required={required}
         disabled={disabled}
-        onInput={(e) => {if (onInput) onInput(e.currentTarget.value)}}
+        onInput={(e) => { if (onInput) onInput(e.currentTarget.value) }}
       />
       <span className='input__icon'>{icon}</span>
       {error && <span className='input__error'>{error}</span>}

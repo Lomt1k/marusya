@@ -11,7 +11,7 @@ type ButtonTextProps = {
 const ButtonText: FC<ButtonTextProps> = ({ children, onClick, dark, className }) => {
   return (
     <button
-      className={'button-text' + (dark ? ' button-text--dark' : '') + (className ? ` ${className}` : '')}
+      className={`button-text ${dark ? 'button-text--dark' : ''} ${className ?? ''}`}
       type='button'
       onClick={() => onClick()}>
       {children}

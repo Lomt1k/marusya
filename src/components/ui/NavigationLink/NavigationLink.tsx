@@ -12,7 +12,9 @@ const NavigationLink: FC<NavigationLinkProps> = ({ to, className, children }) =>
   return (
     <NavLink
       to={to}
-      className={({ isActive }) => ('navigation-link' + (isActive ? ' navigation-link--active' : '') + (className ? ` ${className}` : ''))}
+      className={({ isActive }) => (
+        `navigation-link ${isActive ? 'navigation-link--active' : ''} ${className ?? ''}`
+      )}
     >
       {children}
     </NavLink>

@@ -60,7 +60,7 @@ const MovieSection: FC<MovieSectionProps> = ({ movie, random }) => {
           </div>
           <Image
             className='movie-section__img'
-            src={movie ? (movie.backdropUrl ?? movie.posterUrl ?? EmptyBackdropImage) : ''}
+            src={movie ? (movie.backdropUrl ?? movie.posterUrl ?? EmptyBackdropImage) : undefined}
             alt={movie?.title ?? ''}
           />
         </div>

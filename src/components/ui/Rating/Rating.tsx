@@ -16,7 +16,7 @@ const getRatingModifier = (rating: number) => {
 
 const Rating: FC<RatingProps> = ({ rating, small }) => {
   return (
-    <div className={'rating' + (small ? ' rating--s' : '') + getRatingModifier(rating)}>
+    <div className={ `rating ${small ? 'rating--s' : ''} ${getRatingModifier(rating)}` }>
       <StarIcon />
       <span>{rating.toLocaleString()}</span>
     </div>

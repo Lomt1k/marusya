@@ -11,7 +11,7 @@ type ButtonIconProps = {
 const ButtonIcon: FC<ButtonIconProps> = ({ icon, onClick, secondary, className }) => {
   return (
     <button
-      className={`button-icon ${secondary ? 'button-icon--secondary' : ''} ${className}`}
+      className={`button-icon ${secondary ? 'button-icon--secondary' : ''} ${className ?? ''}`}
       type='button'
       onClick={() => onClick()}
     >
