@@ -8,7 +8,7 @@ type FavoriteButtonProps = {
 }
 
 const FavoriteButton: FC<FavoriteButtonProps> = ({ movieId }) => {
-  const isFavorite = false; // TODO
+  const isFavorite = movieId === 0; // TODO
   
   const icon = isFavorite
     ? <IconFavoriteFilled width={24} height={24} />

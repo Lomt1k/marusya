@@ -1,13 +1,15 @@
 import './Logo.scss';
 import { FC } from 'react';
 import { Link } from 'react-router';
+import IconLogo from '/src/assets/logo/logo.png';
+import IconLogo2x from '/src/assets/logo/logo@2x.png';
 
 const Logo: FC = () => {
   return (
     <Link className='logo' to='/'>
       <img
-        src='/src/assets/logo/logo.png'
-        srcSet='/src/assets/logo/logo@2x.png 2x'
+        src={IconLogo}
+        srcSet={IconLogo2x + ' 2x'}
         alt="Логотип Маруся"
         draggable={false} />
     </Link>
