@@ -7,11 +7,12 @@ type ImageProps = {
   src: string | undefined;
   alt: string;
   className?: string;
+  loadingClassName?: string;
   draggable?: boolean;
 }
 
 /// Ототбражает картинку с индикатором загрузки (в том числе при пустом src)
-const Image: FC<ImageProps> = ({ src, alt, className, draggable }) => {
+const Image: FC<ImageProps> = ({ src, alt, className, loadingClassName, draggable }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -43,7 +44,7 @@ const Image: FC<ImageProps> = ({ src, alt, className, draggable }) => {
 
   return (
     <>
-      {isLoading && <Skeleton className={className} />}
+      {isLoading && <Skeleton className={`${className} ${loadingClassName ?? ''}`} />}
       {src &&
         <img
           className={`image ${className}`}
