@@ -1,5 +1,6 @@
 import { Movie } from "../../../api/Movie";
 import LanguageHelper from "../../../utils/LanguageHelper";
+import StringHelper from "../../../utils/StringHelper";
 
 export interface MovieAboutData {
   param: string;
@@ -14,11 +15,11 @@ export const prepareAboutData = (movie?: Movie): MovieAboutData[] => {
     },
     {
       param: 'Бюджет',
-      value: movie?.budget
+      value: movie?.budget ? StringHelper.toUsd(+movie.budget) : undefined
     },
     {
       param: 'Выручка',
-      value: movie?.revenue
+      value: movie?.revenue ? StringHelper.toUsd(+movie.revenue) : undefined
     },
     {
       param: 'Режиссёр',
