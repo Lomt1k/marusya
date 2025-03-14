@@ -22,7 +22,7 @@ type MovieSectionProps = {
 
 const MovieSection: FC<MovieSectionProps> = ({ movie, isFetching, random }) => {
   return (
-    <section className='movie-section'>
+    <section className={`movie-section ${random ? 'movie-section--random' : ''}`}>
       <Container>
         <div className='movie-section__wrapper'>
           <div className='movie-section__content'>
@@ -51,7 +51,7 @@ const MovieSection: FC<MovieSectionProps> = ({ movie, isFetching, random }) => {
                 )
               }
             </div>
-            <div className="movie-section__buttons">
+            <div className={"movie-section__buttons"}>
               {movie &&
                 <>
                   <Button onClick={() => { }} >Трейлер</Button>

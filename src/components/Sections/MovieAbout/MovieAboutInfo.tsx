@@ -16,10 +16,10 @@ const MovieAboutInfo: FC<MovieAboutInfoProps> = ({ data, loading }) => {
   return (
     <div className="movie-about-info">
       <div className="movie-about-info__param-wrapper">
-        <span>{data.param}</span>
+        <span className='movie-about-info__param'>{data.param}</span>
         <div className='movie-about-info__border' />
       </div>
-      <span>{data.value ?? 'Неизвестно'}</span>
+      <span className='movie-about-info__value'>{data.value ?? 'Неизвестно'}</span>
     </div>
   )
 }
