@@ -30,9 +30,9 @@ export const MovieSchema = z.object({
   awardsSummary: z.string().nullable(),
 });
 
-export const MoviesArraySchema = z.array(MovieSchema);
-
 export type Movie = z.infer<typeof MovieSchema>;
+export const MoviesArraySchema = z.array(MovieSchema);
+export const GenresArraySchema = z.array(z.string());
 
 export const fetchMovie = async (id: number): Promise<Movie> => {
   try {
@@ -56,4 +56,9 @@ export const fetchRandomMovie = async (): Promise<Movie> => {
 export const fetchTopMovies = async (): Promise<Movie[]> => {
   const response = await api.get('/movie/top10');
   return MoviesArraySchema.parse(response.data);
+}
+
+export const fetchGenres = async (): Promise<string[]> => {
+  const response = await api.get('/movie/genres');
+  return GenresArraySchema.parse(response.data);
 }

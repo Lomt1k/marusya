@@ -1,8 +1,10 @@
+import Genres from "../../components/Sections/Genres/Genres";
+
 const GenresPage = () => {
   return (
-    <div>
-      <h1>Genres Page</h1>
-    </div>
+    <main>
+      <Genres />
+    </main>
   )
 };
 
