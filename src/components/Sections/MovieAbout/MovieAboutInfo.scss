@@ -1,0 +1,19 @@
+.movie-about-info {
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--color-primary);
+  display: flex;
+  gap: 8px;
+
+  &__param-wrapper {
+    width: 320px;
+    display: flex;
+    gap: 8px;
+  }
+
+  &__border {
+    flex-grow: 1;
+    border-bottom: 1px dashed var(--color-disabled);
+    height: 18px;
+  }
+}

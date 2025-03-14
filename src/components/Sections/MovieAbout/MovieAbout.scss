@@ -1,0 +1,15 @@
+.movie-about {
+  &__wrapper {
+    padding: 40px 0;
+    display: grid;
+    gap: 64px;
+  }
+
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 24px;
+  }
+}
