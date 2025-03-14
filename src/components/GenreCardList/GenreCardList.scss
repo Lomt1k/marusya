@@ -2,4 +2,12 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  gap: 64px 40px;
+  grid-template-columns: repeat(4, 1fr);
+
+  @include vp-375 {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }

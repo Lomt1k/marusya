@@ -7,7 +7,7 @@ type GenresCardListProps = {
 }
 
 const GenreCardList: FC<GenresCardListProps> = ({ genres }) => {
-  const datas = genres ?? Array<undefined>(8);
+  const datas = genres ?? Array<undefined>(4);
 
   return (
     <ul className="genres-card-list">

@@ -1,7 +1,7 @@
 export const genreNames: { [key: string]: string } = {
   'history': 'Исторический',
   'horror': 'Ужасы',
-  'scifi': 'Научная фантастика',
+  'scifi': 'Sci-fi',
   'stand-up': 'Выступление',
   'fantasy': 'Фантастика',
   'drama': 'Драма',
