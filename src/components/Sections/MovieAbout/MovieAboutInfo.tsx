@@ -9,18 +9,19 @@ type MovieAboutInfoProps = {
 }
 
 const MovieAboutInfo: FC<MovieAboutInfoProps> = ({ data, loading }) => {
-  if (loading) {
-    return <Skeleton linesCount={1} />
-  }
-
   return (
     <div className="movie-about-info">
-      <div className="movie-about-info__param-wrapper">
-        <span className='movie-about-info__param'>{data.param}</span>
-        <div className='movie-about-info__border' />
-      </div>
-      <span className='movie-about-info__value'>{data.value ?? 'Неизвестно'}</span>
-    </div>
+      {loading ? <Skeleton linesCount={1} />
+        : (
+          <>
+            <div className="movie-about-info__param-wrapper">
+              <span className='movie-about-info__param'>{data.param}</span>
+              <div className='movie-about-info__border' />
+            </div >
+            <span className='movie-about-info__value'>{data.value ?? 'Неизвестно'}</span>
+          </>
+        )}
+    </div >
   )
 }
 

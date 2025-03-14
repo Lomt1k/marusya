@@ -13,7 +13,7 @@ const Skeleton: FC<SkeletonProps> = ({ className, linesCount, width }) => {
   return (
     <div
       style={style}
-      className={`skeleton ${className}`}
+      className={`skeleton ${className ?? ''}`}
     />
   )
 }
