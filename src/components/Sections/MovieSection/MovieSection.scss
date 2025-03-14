@@ -95,6 +95,10 @@
     aspect-ratio: 680 / 552;
     width: 100%;
     max-width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-secondary);
 
     @include vp-1439 {
       aspect-ratio: 338 / 234;

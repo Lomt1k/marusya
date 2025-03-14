@@ -6,7 +6,7 @@ export default class StringHelper {
   
     text = text.substring(0, digits);
     // Удаляем последнее слово, т.к. при обрезании через substring могли обрезать на половине слова
-    return StringHelper.removeLastWord(text) + '...';
+    return StringHelper.removeLastWord(text).trimEnd() + '...';
   }
 
   public static removeLastWord(text: string) {

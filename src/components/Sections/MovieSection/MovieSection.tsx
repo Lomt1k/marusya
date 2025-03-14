@@ -7,7 +7,7 @@ import Heading from '../../ui/Heading/Heading';
 import Rating from '../../ui/Rating/Rating';
 import Button from '../../ui/Button/Button';
 import ButtonLink from '../../ui/Button/ButtonLink';
-import EmptyBackdropImage from '/src/assets/images/emptyBackdrop.webp';
+import IconMovie from '/src/assets/icons/movie.svg?react';
 import './MovieSection.scss';
 import FavoriteButton from './Buttons/FavoriteButton';
 import RefreshMovieButton from './Buttons/RefreshMovieButton';
@@ -62,11 +62,14 @@ const MovieSection: FC<MovieSectionProps> = ({ movie, isFetching, random }) => {
               }
             </div>
           </div>
-          <Image
-            className='movie-section__img'
-            src={movie ? (movie.backdropUrl ?? movie.posterUrl ?? EmptyBackdropImage) : undefined}
-            alt={movie?.title ?? ''}
-          />
+          {(movie && !movie.backdropUrl && !movie.posterUrl)
+            ? <div className='movie-section__img'><IconMovie width='20%' /></div>
+            : <Image
+              className='movie-section__img'
+              src={movie ? (movie.backdropUrl ?? movie.posterUrl!) : undefined}
+              alt={movie?.title ?? 'Изображение к фильму'}
+            />
+          }
         </div>
       </Container>
     </section>
