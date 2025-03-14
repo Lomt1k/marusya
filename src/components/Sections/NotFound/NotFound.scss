@@ -17,4 +17,15 @@
     gap: 20px;
     pointer-events: all;
   }
+
+  &__bottom {
+    padding-top: 40px;
+  }
+
+  @include vp-767 {
+    svg {
+      width: 96px;
+      height: 96px;
+    }
+  }
 }
