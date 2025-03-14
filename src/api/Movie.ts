@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z, ZodError } from 'zod';
 import api from './api';
 
 export const MovieSchema = z.object({
@@ -33,6 +33,20 @@ export const MovieSchema = z.object({
 export const MoviesArraySchema = z.array(MovieSchema);
 
 export type Movie = z.infer<typeof MovieSchema>;
+
+export const fetchMovie = async (id: number): Promise<Movie> => {
+  try {
+    const response = await api.get(`/movie/${id}`);
+    return MovieSchema.parse(response.data);
+  }
+  catch (error) {
+    // Когда передаем ID несуществующего фильма, то получаем пустой объект и ловим ZodError при парсинге
+    if (error instanceof ZodError) {
+      throw new Error('Фильм не найден')
+    }
+    throw error;
+  }
+}
 
 export const fetchRandomMovie = async (): Promise<Movie> => {
   const response = await api.get('/movie/random');
