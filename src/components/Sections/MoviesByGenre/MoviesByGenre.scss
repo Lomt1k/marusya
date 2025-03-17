@@ -1,0 +1,11 @@
+.movies-by-genre {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  .button {
+    align-self: center;
+  }
+}

@@ -62,3 +62,10 @@ export const fetchGenres = async (): Promise<string[]> => {
   const response = await api.get('/movie/genres');
   return GenresArraySchema.parse(response.data);
 }
+
+export const fetchMoviesPage = async (genre: string, page: number): Promise<Movie[]> => {
+  const response = await api.get('/movie', {
+    params: { genre, page, count: 10 }
+  });
+  return MoviesArraySchema.parse(response.data);
+}

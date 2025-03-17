@@ -6,10 +6,12 @@ import { FC } from 'react';
 import ButtonLink from '../../ui/Button/ButtonLink';
 
 type NotFoundProps = {
-  title: string;
+  title?: string;
 }
 
 const NotFound: FC<NotFoundProps> = ({ title }) => {
+  title ??= 'Страница не найдена';
+
   return (
     <section className='not-found'>
       <Container>

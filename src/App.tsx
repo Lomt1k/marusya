@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 const LazyNotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 const LazyMainPage = lazy(() => import('./pages/MainPage/MainPage'));
 const LazyGenresPage = lazy(() => import('./pages/GenresPage/GenresPage'));
+const LazyGenrePage = lazy(() => import('./pages/GenrePage/GenrePage'));
 const LazyMoviePage = lazy(() => import('./pages/MoviePage/MoviePage'));
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='/' element={<LazyMainPage />} />
           <Route path='/genres' element={<LazyGenresPage />} />
           <Route path='/genres' element={<LazyGenresPage />} />
+          <Route path='/genres/:genre' element={<LazyGenrePage />} />
           <Route path='/movie/:movieId' element={<LazyMoviePage />} />
         </Routes>
       </Suspense>
