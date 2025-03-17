@@ -12,8 +12,9 @@ const RefreshMovieButton = () => {
   return (
     <ButtonIcon
       secondary
-      icon={<IconRefresh width={24} height={24} />}
-      onClick={hadleClick} />
+      icon={<IconRefresh width={24} height={24} aria-hidden={true} />}
+      onClick={hadleClick}
+      ariaLabel="Обновить фильм" />
   )
 }
 

@@ -9,16 +9,19 @@ type FavoriteButtonProps = {
 
 const FavoriteButton: FC<FavoriteButtonProps> = ({ movieId }) => {
   const isFavorite = movieId === 0; // TODO
-  
+  const ariaLabel = isFavorite
+    ? 'Удалить из избранного'
+    : 'Добавить в избранное';
+
   const icon = isFavorite
-    ? <IconFavoriteFilled width={24} height={24} />
-    : <IconFavorite width={24} height={24} />
+    ? <IconFavoriteFilled width={24} height={24} aria-hidden={true} />
+    : <IconFavorite width={24} height={24} aria-hidden={true} />
 
   const handleClick = () => {
     // TODO
   }
 
-  return <ButtonIcon secondary icon={icon} onClick={handleClick} />
+  return <ButtonIcon secondary icon={icon} onClick={handleClick} ariaLabel={ariaLabel} />
 }
 
 export default FavoriteButton;

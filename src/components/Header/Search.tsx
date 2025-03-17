@@ -14,7 +14,7 @@ const Seacrh = () => {
         type='search'
         name='search'
         placeholder='Поиск'
-        icon={<IconSearch width={24} height={24} />}
+        icon={<IconSearch width={24} height={24} aria-hidden={true} />}
         onInput={handleInput}
       />
     </div>

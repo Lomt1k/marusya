@@ -63,7 +63,7 @@ const MovieSection: FC<MovieSectionProps> = ({ movie, isFetching, random }) => {
             </div>
           </div>
           {(movie && !movie.backdropUrl && !movie.posterUrl)
-            ? <div className='movie-section__img'><IconMovie width='20%' /></div>
+            ? <div className='movie-section__img'><IconMovie width='20%' aria-hidden={true} /></div>
             : <Image
               className='movie-section__img'
               src={movie ? (movie.backdropUrl ?? movie.posterUrl!) : undefined}

@@ -43,7 +43,7 @@ const Image: FC<ImageProps> = ({ src, srcSet, alt, className, loadingClassName, 
     return (
       <div className={`image ${className}`}>
         <div className='image__error-wrapper'>
-          <IconLoadingError />
+          <IconLoadingError aria-hidden={true} />
           <span>{alt}</span>
         </div>
       </div>

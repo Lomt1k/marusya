@@ -4,15 +4,17 @@ import { FC, ReactElement } from 'react';
 type ButtonIconProps = {
   icon: ReactElement;
   onClick: Function;
+  ariaLabel: string;
   secondary?: boolean;
   className?: string;
 }
 
-const ButtonIcon: FC<ButtonIconProps> = ({ icon, onClick, secondary, className }) => {
+const ButtonIcon: FC<ButtonIconProps> = ({ icon, onClick, ariaLabel, secondary, className }) => {
   return (
     <button
       className={`button-icon ${secondary ? 'button-icon--secondary' : ''} ${className ?? ''}`}
       type='button'
+      aria-label={ariaLabel}
       onClick={() => onClick()}
     >
       {icon}

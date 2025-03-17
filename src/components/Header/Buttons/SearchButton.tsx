@@ -6,6 +6,7 @@ const SearchButton = () => {
   return (
     <ButtonIcon className='search-button'
       icon={<IconSearch width={28} height={28} />}
+      ariaLabel='Поиск'
       onClick={() => {}}
     />
   )

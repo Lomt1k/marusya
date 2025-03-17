@@ -19,10 +19,10 @@ const ProfileLink = () => {
 
   return (
     <div className='profile-button'>
-      <Link to='/account' className='profile-button__icon'>
-        <IconProfileLogged width={32} height={32} />
+      <Link to='/account' className='profile-button__icon' aria-label='Аккаунт' >
+        <IconProfileLogged width={32} height={32} aria-hidden={true} />
       </Link>
-      <NavigationLink to='/account' className='profile-button__nav-link'>
+      <NavigationLink to='/account' className='profile-button__nav-link' aria-label='Аккаунт'>
         {name}
       </NavigationLink>
     </div>
@@ -38,7 +38,8 @@ const ProfileSignIn = () => {
     <div className='profile-button'>
       <ButtonIcon
         className='profile-button__icon'
-        icon={<IconProfile width={32} height={32} />}
+        icon={<IconProfile width={32} height={32} aria-hidden='true' />}
+        ariaLabel='Войти'
         onClick={() => handleRegisterClick()}
       />
       <ButtonText

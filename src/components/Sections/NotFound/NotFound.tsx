@@ -16,7 +16,7 @@ const NotFound: FC<NotFoundProps> = ({ title }) => {
     <section className='not-found'>
       <Container>
         <div className="not-found__wrapper">
-          <IconMovie width={128} height={128} />
+          <IconMovie width={128} height={128} aria-hidden={true} />
           <Heading level={1} visual={2}>{title}</Heading>
           <div className="not-found__bottom">
             <ButtonLink to={'/'}>На главную</ButtonLink>
