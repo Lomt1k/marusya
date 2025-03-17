@@ -2,10 +2,10 @@ import { FC } from "react";
 import './MoviesByGenre.scss';
 import Container from "../../ui/Container/Container";
 import Heading from "../../ui/Heading/Heading";
-import { genreNames } from "../../../utils/GenreNames";
 import MovieCardList from "../../MovieCardList/MovieCardList";
 import Button from "../../ui/Button/Button";
 import { useMoviesByGenre } from "../../../hooks/useMoviesByGenre";
+import MovieHelper from "../../../utils/MovieHelper";
 
 type MoviesByGenreProps = {
   genre: string;
@@ -18,7 +18,7 @@ const MoviesByGenre: FC<MoviesByGenreProps> = ({ genre }) => {
     <section className="movies-by-genre">
       <Container>
         <div className="movies-by-genre__wrapper">
-          <Heading level={1}>{genreNames[genre]}</Heading>
+          <Heading level={1}>{MovieHelper.getLocalizedGenre(genre)}</Heading>
           <MovieCardList movies={movies} />
           <Button onClick={() => loadNextPage()}>Показать ещё</Button>
         </div>
