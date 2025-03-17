@@ -18,16 +18,23 @@ const Image: FC<ImageProps> = ({ src, srcSet, alt, className, loadingClassName, 
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    if (!src) {
+      setIsLoading(true);
+      setIsLoaded(false);
+    }
+  }, [src])
+
+  const handleStartLoading = () => {
     setIsLoading(true);
     setIsLoaded(false);
-  }, [src]);
+  }
 
-  const handleImageLoad = () => {
+  const handleLoad = () => {
     setIsLoading(false);
     setIsLoaded(true);
   };
 
-  const handleImageError = () => {
+  const handleError = () => {
     setIsLoading(false);
     setIsLoaded(false);
   };
@@ -53,8 +60,9 @@ const Image: FC<ImageProps> = ({ src, srcSet, alt, className, loadingClassName, 
           srcSet={srcSet}
           alt={alt}
           draggable={draggable ?? false}
-          onLoad={handleImageLoad}
-          onError={handleImageError}
+          onLoadStart={handleStartLoading}
+          onLoad={handleLoad}
+          onError={handleError}
           style={{ display: isLoaded ? 'block' : 'none' }}
         />
       }
