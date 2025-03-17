@@ -69,3 +69,10 @@ export const fetchMoviesPage = async (genre: string, page: number): Promise<Movi
   });
   return MoviesArraySchema.parse(response.data);
 }
+
+export const fetchMoviesByTitle = async (title: string): Promise<Movie[]> => {
+  const response = await api.get('/movie', {
+    params: { title, count: 5 }
+  });
+  return MoviesArraySchema.parse(response.data);
+}
