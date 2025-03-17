@@ -1,10 +1,10 @@
 import './Heading.scss';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 type HeadingProps = {
   level: 1 | 2;
   visual?: 1 | 2 | 'hidden'
-  children?: string;
+  children?: ReactNode;
 }
 
 const Heading: FC<HeadingProps> = ({ level, visual, children }) => {
