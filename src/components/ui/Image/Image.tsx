@@ -5,6 +5,7 @@ import './Image.scss';
 
 type ImageProps = {
   src: string | undefined;
+  srcSet?: string;
   alt: string;
   className?: string;
   loadingClassName?: string;
@@ -12,7 +13,7 @@ type ImageProps = {
 }
 
 /// Ототбражает картинку с индикатором загрузки (в том числе при пустом src)
-const Image: FC<ImageProps> = ({ src, alt, className, loadingClassName, draggable }) => {
+const Image: FC<ImageProps> = ({ src, srcSet, alt, className, loadingClassName, draggable }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -49,6 +50,7 @@ const Image: FC<ImageProps> = ({ src, alt, className, loadingClassName, draggabl
         <img
           className={`image ${className}`}
           src={src}
+          srcSet={srcSet}
           alt={alt}
           draggable={draggable ?? false}
           onLoad={handleImageLoad}
