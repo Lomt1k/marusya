@@ -1,0 +1,1 @@
+import{j as t}from"./index-Wm09HLYt.js";import{N as o}from"./NotFound-DH3eNPhS.js";import"./ButtonLink-Ddo5KR4x.js";const i=()=>t.jsx("main",{children:t.jsx(o,{title:"Страница не найдена"})});export{i as default};

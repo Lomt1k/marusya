@@ -1,1 +1,0 @@
-import{j as e}from"./index-Cm7wupvx.js";import"./ButtonLink-Zk_jERSo.js";const b=({children:t,onClick:o,className:n,secondary:s,submit:r,disabled:u})=>e.jsx("button",{className:`button ${s?" button--secondary":""} ${n??""}`,type:r?"submit":"button",disabled:u,onClick:()=>o(),children:t});export{b as B};
