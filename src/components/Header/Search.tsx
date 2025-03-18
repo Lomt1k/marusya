@@ -30,7 +30,7 @@ const Search = observer(() => {
           onClick={handleReset}
           ariaLabel='Сбросить поиск' />
       }
-      {showResults && <SearchResults movies={movies} isFetching={isFetching} onClickMovie={handleClickMovie} />}
+      {showResults && <SearchResults movies={movies} isFetching={isFetching} onClickMovie={handleClickMovie} activeAsModal={activeAsModal} />}
     </div>
   )
 })

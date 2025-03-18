@@ -5,6 +5,7 @@
   border-radius: 6px;
   outline: none;
   transition: border-color var(--transition-200);
+  $root: &;
 
   &:hover,
   &:focus-visible {
@@ -35,5 +36,20 @@
     font-size: 14px;
     line-height: 20px;
     text-transform: lowercase;
+  }
+
+  &--modal {
+    border: none;
+    padding: 0;
+    width: 220px;
+
+    #{$root}__wrapper {
+      flex-direction: column;
+    }
+
+    #{$root}__img {
+      width: 158px;
+      height: 206px;
+    }
   }
 }
