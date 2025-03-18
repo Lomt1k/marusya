@@ -2,7 +2,7 @@ import './Input.scss';
 import { FC, ReactElement } from 'react';
 
 type InputProps = {
-  type: 'text' | 'email' | 'password' | 'search';
+  type: 'text' | 'email' | 'password';
   name: string;
   placeholder: string;
   icon: ReactElement;

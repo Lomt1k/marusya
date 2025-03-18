@@ -41,7 +41,6 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    content: '';
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
@@ -62,7 +61,7 @@
   &--dark #{$root}__field {
     background-color: var(--color-bg-secondary);
     border-color: var(--color-bg-secondary);
-    color: var(--color-white);
+    color: var(--color-primary);
 
     &::placeholder {
       color: var(--color-disabled);
