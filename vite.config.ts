@@ -5,6 +5,8 @@ import svgr from 'vite-plugin-svgr'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
+  // Используем относительные пути после сборки
+  base: './',
   css: {
     preprocessorOptions: {
       scss: {

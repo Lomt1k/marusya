@@ -7,7 +7,7 @@ const MainPage = () => {
   return (
     <main>
       <Heading level={1} visual='hidden'>
-        Маруся - стриминговый сервис для поиска фильмов
+        Маруся — стриминговый сервис для поиска фильмов
       </Heading>
       <RandomMovieSection />
       <TopMovies />
