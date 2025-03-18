@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import MovieHelper from "../../utils/MovieHelper";
 import Skeleton from "../ui/Skeleton/Skeleton";
 import Image from '../ui/Image/Image';
@@ -28,4 +28,4 @@ const GenreCard: FC<GenreCardProps> = ({ genre }) => {
   )
 }
 
-export default GenreCard;
+export default memo(GenreCard);

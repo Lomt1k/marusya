@@ -1,8 +1,13 @@
+import { FC } from 'react';
 import './Loader.scss';
 
-const Loader = () => {
+type LoaderProps = {
+  small?: boolean;
+}
+
+const Loader: FC<LoaderProps> = ({ small }) => {
   return (
-    <div className="loader" />
+    <div className={`loader ${small ? 'loader--small' : ''}`} />
   )
 }
 

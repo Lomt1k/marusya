@@ -10,10 +10,11 @@ type InputProps = {
   required?: boolean;
   disabled?: boolean;
   error?: string;
+  value?: string;
   onInput?: (value: string) => void
 }
 
-const Input: FC<InputProps> = ({ type, name, placeholder, icon, dark, required, disabled, error, onInput }) => {
+const Input: FC<InputProps> = ({ type, name, placeholder, icon, dark, required, disabled, error, value, onInput }) => { 
   return (
     <div className={`input ${dark ? 'input--dark' : ''} ${error ? 'input--error' : ''}`}>
       <input
@@ -23,6 +24,7 @@ const Input: FC<InputProps> = ({ type, name, placeholder, icon, dark, required, 
         placeholder={placeholder}
         required={required}
         disabled={disabled}
+        value={value}
         onInput={(e) => { if (onInput) onInput(e.currentTarget.value) }}
       />
       <span className='input__icon'>{icon}</span>
