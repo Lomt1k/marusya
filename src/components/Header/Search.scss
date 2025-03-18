@@ -58,4 +58,43 @@
     color: var(--color-disabled);
     transition: color var(--transition-200);
   }
+
+  &--modal {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 16px 20px 100vh;
+    z-index: 10;
+    background-color: var(--color-black-50);
+
+    #{$root}__field {
+      padding: 15px 15px 15px 51px;
+
+      &:hover,
+      &:focus-visible {
+        border-color: var(--color-bg-secondary);
+
+        #{$root}__icon {
+          color: var(--color-disabled);
+        }
+      }
+
+      &:hover ~ #{$root}__icon,
+      &:focus-visible ~ #{$root}__icon {
+        color: var(--color-disabled);
+      }
+    }
+
+    #{$root}__icon {
+      top: 44px;
+      left: 36px;
+    }
+
+    #{$root}__reset-btn {
+      top: 44px;
+      right: 36px;
+      color: var(--color-primary);
+    }
+  }
 }
