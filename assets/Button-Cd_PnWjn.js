@@ -1,0 +1,1 @@
+import{j as e}from"./index-BnYu_4h-.js";import"./Heading-CIFWgH3I.js";const b=({children:t,onClick:o,className:n,secondary:s,submit:r,disabled:u})=>e.jsx("button",{className:`button ${s?" button--secondary":""} ${n??""}`,type:r?"submit":"button",disabled:u,onClick:()=>o(),children:t});export{b as B};
