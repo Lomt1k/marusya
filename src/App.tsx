@@ -3,6 +3,8 @@ import { lazy, Suspense } from 'react';
 import Loader from './components/ui/Loader/Loader';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import { useQuery } from '@tanstack/react-query';
+import { fetchUser } from './api/Auth';
 
 const LazyNotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 const LazyMainPage = lazy(() => import('./pages/MainPage/MainPage'));
@@ -11,6 +13,11 @@ const LazyGenrePage = lazy(() => import('./pages/GenrePage/GenrePage'));
 const LazyMoviePage = lazy(() => import('./pages/MoviePage/MoviePage'));
 
 function App() {
+  useQuery({
+    queryKey: ['user', 'get'],
+    queryFn: fetchUser
+  });
+
   return (
     <>
       <Header />
