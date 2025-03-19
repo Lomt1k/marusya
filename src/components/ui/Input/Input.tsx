@@ -1,5 +1,5 @@
 import './Input.scss';
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, RefObject } from 'react';
 
 type InputProps = {
   type: 'text' | 'email' | 'password';
@@ -11,10 +11,12 @@ type InputProps = {
   disabled?: boolean;
   error?: string;
   value?: string;
+  autoFocus?: boolean;
+  ref?: RefObject<HTMLInputElement | null>;
   onInput?: (value: string) => void
 }
 
-const Input: FC<InputProps> = ({ type, name, placeholder, icon, dark, required, disabled, error, value, onInput }) => { 
+const Input: FC<InputProps> = ({ type, name, placeholder, icon, dark, required, disabled, error, value, autoFocus, ref, onInput }) => { 
   return (
     <div className={`input ${dark ? 'input--dark' : ''} ${error ? 'input--error' : ''}`}>
       <input
@@ -25,6 +27,8 @@ const Input: FC<InputProps> = ({ type, name, placeholder, icon, dark, required, 
         required={required}
         disabled={disabled}
         value={value}
+        autoFocus={autoFocus ?? false}
+        ref={ref}
         onInput={(e) => { if (onInput) onInput(e.currentTarget.value) }}
       />
       <span className='input__icon'>{icon}</span>

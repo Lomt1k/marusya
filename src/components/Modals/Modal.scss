@@ -9,7 +9,7 @@
 
   &__content {
     background-color: var(--color-white);
-    padding: 64px 40px;
+    padding: 64px 40px 32px;
     border-radius: 24px;
 
     @include vp-767 {

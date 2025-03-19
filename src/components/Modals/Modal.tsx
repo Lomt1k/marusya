@@ -5,12 +5,13 @@ import './Modal.scss';
 type ModalProps = {
   onClickClose: Function;
   children?: ReactNode;
+  className?: string;
 }
 
-const Modal: FC<ModalProps> = ({ onClickClose, children }) => {
+const Modal: FC<ModalProps> = ({ onClickClose, children, className }) => {
   return (
     <div className="modal">
-      <div className="modal__content">
+      <div className={`modal__content ${className ?? ''}`}>
         {children}
       </div>
       <button className="modal__close" onClick={() => onClickClose()}>
