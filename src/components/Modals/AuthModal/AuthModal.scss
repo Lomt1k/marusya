@@ -1,12 +1,8 @@
-.register-modal {
+.auth-modal {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
-
-  @include vp-767 {
-    align-items: stretch;
-  }
 
   &__logo {
     margin: 0 auto;
@@ -15,10 +11,21 @@
   &__content {
     display: grid;
     gap: 24px;
+    max-width: 340px;
   }
 
   &__heading {
     text-align: center;
+  }
+
+  &__text {
+    margin: 0;
+    text-align: center;
+    color: var(--color-black);
+
+    @include vp-767 {
+      max-width: unset;
+    }
   }
 
   &__inputs {
