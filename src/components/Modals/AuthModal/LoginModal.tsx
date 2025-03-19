@@ -24,7 +24,7 @@ const LoginModal: FC<LoginModalProps> = ({ onClickRegister }) => {
 
   return (
     <Modal className="login-modal" onClickClose={() => RootStore.auth.setModalActive(false)}>
-      <LogoDark />
+      <LogoDark className="login-modal__logo" />
       <div className="login-modal__content">
         <div className="login-modal__inputs">
           <Input type='email' name='email' placeholder='Электронная почта' icon={iconEmail} ref={firstInputRef} />

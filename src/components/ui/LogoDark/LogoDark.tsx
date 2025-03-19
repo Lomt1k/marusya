@@ -4,9 +4,13 @@ import IconLogo2x from '/src/assets/logo/logo-dark@2x.png';
 import { FC } from 'react';
 import { Link } from 'react-router';
 
-const LogoDark: FC = () => {
+type LogoDarkProps = {
+  className?: string;
+}
+
+const LogoDark: FC<LogoDarkProps> = ({ className }) => {
   return (
-    <Link className='logo-dark' to='/'>
+    <Link className={`logo-dark ${className ?? ''}`} to='/'>
       <img
         src={IconLogo}
         srcSet={IconLogo2x + ' 2x'}
