@@ -1,13 +1,13 @@
 import SearchStore from "./SearchStore";
-import UserStore from "./UserStore";
+import AuthStore from "./AuthStore";
 
 class RootStore {
   search: SearchStore;
-  user: UserStore;
+  auth: AuthStore;
   
   constructor() {
     this.search = new SearchStore();
-    this.user = new UserStore();
+    this.auth = new AuthStore();
   }
 }
 

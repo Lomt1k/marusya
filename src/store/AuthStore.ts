@@ -1,8 +1,9 @@
 import { makeAutoObservable } from "mobx";
 import { User } from "../api/Auth";
 
-class UserStore {
+class AuthStore {
   user: User | null = null;
+  isModalActive: boolean = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -12,13 +13,17 @@ class UserStore {
     return this.user != null;
   }
 
-  set(user: User) {
+  setUser(user: User) {
     this.user = user;
   }
 
   clear() {
     this.user = null;
   }
+
+  setModalActive(state: boolean) {
+    this.isModalActive = state;
+  }
 }
 
-export default UserStore;
+export default AuthStore;

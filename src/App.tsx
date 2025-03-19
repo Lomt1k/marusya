@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { useQuery } from '@tanstack/react-query';
 import { fetchUser } from './api/Auth';
+import Modals from './components/Modals/Modals';
 
 const LazyNotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 const LazyMainPage = lazy(() => import('./pages/MainPage/MainPage'));
@@ -32,6 +33,7 @@ function App() {
         </Routes>
       </Suspense>
       <Footer />
+      <Modals />
     </>
   )
 }

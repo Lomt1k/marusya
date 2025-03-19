@@ -15,11 +15,11 @@ export const fetchUser = async (): Promise<User | null> => {
   try {
     const response = await api.get('/profile', { validateStatus: status => [200, 401].includes(status) });
     if (response.status === 401) {
-      RootStore.user.clear();
+      RootStore.auth.clear();
       return null;
     }
     const user = UserSchema.parse(response.data);
-    RootStore.user.set(user);
+    RootStore.auth.setUser(user);
     return user;
   } catch (error) {
     console.error('Ошибка при запросе пользователя:', error);
