@@ -11,12 +11,14 @@ type ModalProps = {
 const Modal: FC<ModalProps> = ({ onClickClose, children, className }) => {
   return (
     <div className="modal">
-      <div className={`modal__content ${className ?? ''}`}>
-        {children}
+      <div className="modal__wrapper">
+        <div className={`modal__content ${className ?? ''}`}>
+          {children}
+        </div>
+        <button className="modal__close" onClick={() => onClickClose()}>
+          <IconClose width={24} height={24} aria-hidden={true} />
+        </button>
       </div>
-      <button className="modal__close" onClick={() => onClickClose()}>
-        <IconClose width={24} height={24} aria-hidden={true} />
-      </button>
     </div>
   )
 }
