@@ -14,7 +14,9 @@ const AuthModal = () => {
 
   switch (type) {
     case AuthModalType.register:
-      return <RegisterModal onClickLogin={() => setType(AuthModalType.login)} />
+      return <RegisterModal
+        onClickLogin={() => setType(AuthModalType.login)}
+        onSuccess={() => setType(AuthModalType.finishRegister)} />
     case AuthModalType.finishRegister:
       return <FinishRegisterModal onClickLogin={() => setType(AuthModalType.login)} />
     default:

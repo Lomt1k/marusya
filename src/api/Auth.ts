@@ -9,39 +9,39 @@ const UserSchema = z.object({
   favorites: z.array(z.number()),
 });
 
-export type User = z.infer<typeof UserSchema>;
-
-export const fetchUser = async (): Promise<User | null> => {
-  try {
-    const response = await api.get('/profile', { validateStatus: status => [200, 401].includes(status) });
-    if (response.status === 401) {
-      RootStore.auth.clear();
-      return null;
-    }
-    const user = UserSchema.parse(response.data);
-    RootStore.auth.setUser(user);
-    return user;
-  } catch (error) {
-    console.error('Ошибка при запросе пользователя:', error);
-    return null;
-  }
-}
-
-const RegisterDataSchema = z.object({
+export const RegisterDataSchema = z.object({
   email: z.string()
     .email('Некорректный email'),
-  password: z.string()
-    .min(8, 'Длина пароля должна быть не менее 8 символов')
-    .max(24, 'Длина пароля должна быть не более 24 символов'),
   name: z.string()
     .nonempty('Необходимо указать имя'),
   surname: z.string()
     .nonempty('Необходимо указать фамилию'),
+  password: z.string()
+    .min(8, 'Длина пароля должна быть не менее 8 символов')
+    .max(24, 'Длина пароля должна быть не более 24 символов'),
+  passwordRepeat: z.string()
+    .nonempty('Необходимо подтвердить пароль'),
+}).refine(data => data.password === data.passwordRepeat, {
+  message: 'Пароли не совпадают',
+  path: ['passwordRepeat'],
 });
 
+export type User = z.infer<typeof UserSchema>;
 export type RegisterData = z.infer<typeof RegisterDataSchema>;
+export type RequestRegisterData = Omit<RegisterData, 'passwordRepeat'>;
 
-export const fetchRegister = async (registerData: RegisterData): Promise<void> => {
+export const fetchUser = async (): Promise<User | null> => {
+  const response = await api.get('/profile', { validateStatus: status => [200, 401].includes(status) });
+  if (response.status === 401) {
+    RootStore.auth.clear();
+    return null;
+  }
+  const user = UserSchema.parse(response.data);
+  RootStore.auth.setUser(user);
+  return user;
+};
+
+export const fetchRegister = async (registerData: RequestRegisterData): Promise<void> => {
   const response = await api.post('/user', registerData);
   console.log(response);
 }

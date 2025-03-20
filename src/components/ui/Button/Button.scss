@@ -1,5 +1,6 @@
 .button {
   display: block;
+  position: relative;
   margin: 0;
   padding: 16px 48px;
   border: 1px solid var(--color-bg-primary);
@@ -34,9 +35,16 @@
     cursor: default;
   }
 
+  &__loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   &--secondary {
     background-color: var(--color-bg-secondary);
-    border: 1px solid var(--color-placeholder);
+    border-color: var(--color-placeholder);
     padding: 15px 47px;
 
     @include vp-767 {
@@ -47,4 +55,22 @@
   &--secondary[disabled] {
     background-color: var(--color-bg-secondary-disabled);
   }
+
+  &--loading,
+  &--loading:hover,
+  &--loading:focus-visible {
+    user-select: none;
+    background-color: var(--color-bg-primary);
+    border-color: var(--color-bg-primary);
+    color: var(--color-bg-primary);
+  }
+
+  &--loading.button--secondary,
+  &--loading:hover.button--secondary,
+  &--loading:focus-visible.button--secondary {
+    background-color: var(--color-bg-secondary);
+    border-color: var(--color-placeholder);
+    color: var(--color-bg-secondary);
+  }
+
 }
