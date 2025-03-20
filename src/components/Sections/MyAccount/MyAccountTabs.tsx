@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import IconFavorite from '/src/assets/icons/favorite.svg?react';
 import IconUser from '/src/assets/icons/user.svg?react';
+import MyAccountSettings from "./MyAccountSettings";
 
 export interface MyAccountTab {
   title: string;
@@ -17,6 +18,6 @@ export const MyAccountTabs: MyAccountTab[] = [
   {
     title: 'Настройки аккаунта',
     icon: <IconUser width={24} hanging={24} aria-hidden={true} />,
-    content: 'Settings'
+    content: <MyAccountSettings />
   },
 ];

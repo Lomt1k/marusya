@@ -15,7 +15,7 @@ const MyAccount = () => {
           <nav aria-label='Навигация по странице аккаунта'>
             <ul className="my-account__nav-list">
               {MyAccountTabs.map(tab => (
-                <li>
+                <li key={tab.title}>
                   <button
                     className={`my-account__nav-btn ${tab === currentTab ? 'my-account__nav-btn--active' : ''}`}
                     type='button'
