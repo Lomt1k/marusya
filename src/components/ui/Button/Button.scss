@@ -56,6 +56,8 @@
     background-color: var(--color-bg-secondary-disabled);
   }
 
+  /* При лоадинге скрываем текст только визуально чтобы не менялась высота кнопки */
+
   &--loading,
   &--loading:hover,
   &--loading:focus-visible {

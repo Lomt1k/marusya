@@ -42,6 +42,5 @@ export const fetchUser = async (): Promise<User | null> => {
 };
 
 export const fetchRegister = async (registerData: RequestRegisterData): Promise<void> => {
-  const response = await api.post('/user', registerData);
-  console.log(response);
+  await api.post('/user', registerData);
 }
