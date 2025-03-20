@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import api from './api';
+import api, { handleErrorResponse, ErrorResponseSchema } from './api';
 import RootStore from '../store/RootStore';
 
 const UserSchema = z.object({
@@ -48,11 +48,19 @@ export const fetchUser = async (): Promise<User | null> => {
 };
 
 export const fetchRegister = async (registerData: RequestRegisterData): Promise<void> => {
-  await api.post('/user', registerData);
+  const response = await api.post('/user', registerData, {
+    validateStatus: status => status < 500
+  });
+  handleErrorResponse(response);
 }
 
 export const fetchLogin = async (loginData: LoginData): Promise<void> => {
-  await api.post('/auth/login', loginData);
+  const response = await api.post('/auth/login', loginData, {
+    validateStatus: status => [200, 400].includes(status)
+  });
+  if (response.status === 400) {
+    throw new Error('Email или пароль введены неверно');
+  }
 }
 
 export const fetchLogout = async (): Promise<void> => {

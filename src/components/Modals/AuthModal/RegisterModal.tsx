@@ -55,6 +55,7 @@ const RegisterModal: FC<RegisterModalProps> = ({ onClickLogin, onSuccess }) => {
             <Input {...register('password')} type='password' placeholder='Пароль' icon={iconPassword} error={errors.password?.message} />
             <Input {...register('passwordRepeat')} type='password' placeholder='Подтвердите пароль' icon={iconPassword} error={errors.passwordRepeat?.message} />
           </div>
+          {registerMutation.error && <span className="auth-modal__error">{registerMutation.error.message}</span>}
           <Button submit loading={registerMutation.isPending}>Создать аккаунт</Button>
           <ButtonText dark onClick={onClickLogin} >У меня есть пароль</ButtonText>
         </div>

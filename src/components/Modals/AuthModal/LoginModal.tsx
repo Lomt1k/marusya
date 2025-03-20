@@ -49,6 +49,7 @@ const LoginModal: FC<LoginModalProps> = ({ onClickRegister }) => {
             <Input {...register('email')} type='email' placeholder='Электронная почта' icon={iconEmail} error={errors.email?.message} />
             <Input {...register('password')} type='password' placeholder='Пароль' icon={iconPassword} error={errors.password?.message} />
           </div>
+          {loginMutation.error && <span className="auth-modal__error">{loginMutation.error.message}</span>}
           <Button submit loading={loginMutation.isPending}>Войти</Button>
           <ButtonText dark onClick={onClickRegister} >Регистрация</ButtonText>
         </div>

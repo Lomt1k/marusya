@@ -32,4 +32,10 @@
     display: grid;
     gap: 12px;
   }
+
+  &__error {
+    display: block;
+    text-align: center;
+    color: var(--color-error);
+  }
 }
