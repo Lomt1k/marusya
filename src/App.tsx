@@ -15,7 +15,7 @@ const LazyMoviePage = lazy(() => import('./pages/MoviePage/MoviePage'));
 
 function App() {
   useQuery({
-    queryKey: ['user', 'get'],
+    queryKey: ['user'],
     queryFn: fetchUser
   });
 

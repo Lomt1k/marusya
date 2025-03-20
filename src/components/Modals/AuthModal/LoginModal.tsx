@@ -7,6 +7,10 @@ import IconEmail from '/src/assets/icons/email.svg?react';
 import IconPassword from '/src/assets/icons/password.svg?react';
 import Button from "../../ui/Button/Button";
 import ButtonText from "../../ui/ButtonText/ButtonText";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { fetchLogin, LoginData, LoginDataSchema } from "../../../api/Auth";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import './AuthModal.scss';
 
 type LoginModalProps = {
@@ -14,20 +18,41 @@ type LoginModalProps = {
 }
 
 const LoginModal: FC<LoginModalProps> = ({ onClickRegister }) => {
+  const queryClient = useQueryClient();
+  const loginMutation = useMutation({
+    mutationKey: ['login'],
+    mutationFn: fetchLogin,
+    onSuccess() {
+      queryClient.invalidateQueries({ queryKey: ['user'] });
+      RootStore.auth.setModalActive(false);
+    },
+    onError() {
+      reset();
+    }
+  })
+
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<LoginData>({
+    resolver: zodResolver(LoginDataSchema)
+  });
+
   const iconEmail = <IconEmail aria-hidden={true} width={24} height={24} />
   const iconPassword = <IconPassword aria-hidden={true} width={24} height={24} />
 
   return (
-    <Modal className="auth-modal" onClickClose={() => RootStore.auth.setModalActive(false)}>
-      <LogoDark className="auth-modal__logo" />
-      <div className="auth-modal__content">
-        <div className="auth-modal__inputs">
-          <Input type='email' name='email' placeholder='Электронная почта' icon={iconEmail} />
-          <Input type='password' name='password' placeholder='Пароль' icon={iconPassword} />
+    <Modal onClickClose={() => RootStore.auth.setModalActive(false)}>
+      <form className="auth-modal" onSubmit={handleSubmit(({ email, password }) => {
+        loginMutation.mutate({ email, password })
+      })}>
+        <LogoDark className="auth-modal__logo" />
+        <div className="auth-modal__content">
+          <div className="auth-modal__inputs">
+            <Input {...register('email')} type='email' placeholder='Электронная почта' icon={iconEmail} error={errors.email?.message} />
+            <Input {...register('password')} type='password' placeholder='Пароль' icon={iconPassword} error={errors.password?.message} />
+          </div>
+          <Button submit loading={loginMutation.isPending}>Войти</Button>
+          <ButtonText dark onClick={onClickRegister} >Регистрация</ButtonText>
         </div>
-        <Button onClick={() => {}}>Войти</Button>
-        <ButtonText dark onClick={onClickRegister} >Регистрация</ButtonText>
-      </div>
+      </form>
     </Modal>
   )
 }

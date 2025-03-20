@@ -26,9 +26,15 @@ export const RegisterDataSchema = z.object({
   path: ['passwordRepeat'],
 });
 
+export const LoginDataSchema = z.object({
+  email: z.string().email('Некорректный email'),
+  password: z.string().nonempty('Нужно ввести пароль'),
+});
+
 export type User = z.infer<typeof UserSchema>;
 export type RegisterData = z.infer<typeof RegisterDataSchema>;
 export type RequestRegisterData = Omit<RegisterData, 'passwordRepeat'>;
+export type LoginData = z.infer<typeof LoginDataSchema>;
 
 export const fetchUser = async (): Promise<User | null> => {
   const response = await api.get('/profile', { validateStatus: status => [200, 401].includes(status) });
@@ -43,4 +49,12 @@ export const fetchUser = async (): Promise<User | null> => {
 
 export const fetchRegister = async (registerData: RequestRegisterData): Promise<void> => {
   await api.post('/user', registerData);
+}
+
+export const fetchLogin = async (loginData: LoginData): Promise<void> => {
+  await api.post('/auth/login', loginData);
+}
+
+export const fetchLogout = async (): Promise<void> => {
+  await api.get('/auth/logout');
 }
