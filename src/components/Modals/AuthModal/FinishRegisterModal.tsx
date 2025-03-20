@@ -7,7 +7,7 @@ import LogoDark from "../../ui/LogoDark/LogoDark";
 import './AuthModal.scss';
 
 type FinishRegisterModalProps = {
-  onClickLogin: Function;
+  onClickLogin: () => void;
 }
 
 const FinishRegisterModal: FC<FinishRegisterModalProps> = ({ onClickLogin }) => {
@@ -17,7 +17,7 @@ const FinishRegisterModal: FC<FinishRegisterModalProps> = ({ onClickLogin }) => 
       <div className="auth-modal__content">
         <Heading dark level={4} className="auth-modal__heading">Регистрация завершена</Heading>
         <p className="auth-modal__text">Используйте вашу электронную почту для входа</p>
-        <Button onClick={() => onClickLogin()}>Войти</Button>\
+        <Button onClick={onClickLogin}>Войти</Button>\
       </div>
     </Modal>
   )

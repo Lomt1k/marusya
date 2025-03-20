@@ -3,7 +3,7 @@ import IconClose from '/src/assets/icons/close.svg?react';
 import './Modal.scss';
 
 type ModalProps = {
-  onClickClose: Function;
+  onClickClose: () => void;
   children?: ReactNode;
   className?: string;
 }
@@ -15,7 +15,7 @@ const Modal: FC<ModalProps> = ({ onClickClose, children, className }) => {
         <div className={`modal__content ${className ?? ''}`}>
           {children}
         </div>
-        <button className="modal__close" onClick={() => onClickClose()}>
+        <button className="modal__close" onClick={onClickClose}>
           <IconClose width={24} height={24} aria-hidden={true} />
         </button>
       </div>

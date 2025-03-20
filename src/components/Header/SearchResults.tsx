@@ -7,7 +7,7 @@ import './SearchResults.scss';
 type SearchResultsProps = {
   movies: Movie[] | undefined;
   isFetching: boolean;
-  onClickMovie: Function;
+  onClickMovie: () => void;
   activeAsModal: boolean;
 }
 

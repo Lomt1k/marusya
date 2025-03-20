@@ -10,7 +10,7 @@ import ButtonText from "../../ui/ButtonText/ButtonText";
 import './AuthModal.scss';
 
 type LoginModalProps = {
-  onClickRegister: Function;
+  onClickRegister: () => void;
 }
 
 const LoginModal: FC<LoginModalProps> = ({ onClickRegister }) => {
@@ -26,7 +26,7 @@ const LoginModal: FC<LoginModalProps> = ({ onClickRegister }) => {
           <Input type='password' name='password' placeholder='Пароль' icon={iconPassword} />
         </div>
         <Button onClick={() => {}}>Войти</Button>
-        <ButtonText dark onClick={() => onClickRegister()} >Регистрация</ButtonText>
+        <ButtonText dark onClick={onClickRegister} >Регистрация</ButtonText>
       </div>
     </Modal>
   )

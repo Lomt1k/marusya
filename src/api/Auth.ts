@@ -26,3 +26,22 @@ export const fetchUser = async (): Promise<User | null> => {
     return null;
   }
 }
+
+const RegisterDataSchema = z.object({
+  email: z.string()
+    .email('Некорректный email'),
+  password: z.string()
+    .min(8, 'Длина пароля должна быть не менее 8 символов')
+    .max(24, 'Длина пароля должна быть не более 24 символов'),
+  name: z.string()
+    .nonempty('Необходимо указать имя'),
+  surname: z.string()
+    .nonempty('Необходимо указать фамилию'),
+});
+
+export type RegisterData = z.infer<typeof RegisterDataSchema>;
+
+export const fetchRegister = async (registerData: RegisterData): Promise<void> => {
+  const response = await api.post('/user', registerData);
+  console.log(response);
+}

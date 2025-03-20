@@ -12,7 +12,7 @@ import Heading from "../../ui/Heading/Heading";
 import './AuthModal.scss';
 
 type RegisterModalProps = {
-  onClickLogin: Function;
+  onClickLogin: () => void;
 }
 
 const RegisterModal: FC<RegisterModalProps> = ({ onClickLogin }) => {
@@ -33,7 +33,7 @@ const RegisterModal: FC<RegisterModalProps> = ({ onClickLogin }) => {
           <Input type='password' name='password-repeat' placeholder='Подтвердите пароль' icon={iconPassword} />
         </div>
         <Button onClick={() => {}}>Создать аккаунт</Button>
-        <ButtonText dark onClick={() => onClickLogin()} >У меня есть пароль</ButtonText>
+        <ButtonText dark onClick={onClickLogin} >У меня есть пароль</ButtonText>
       </div>
     </Modal>
   )

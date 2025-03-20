@@ -8,7 +8,7 @@ import './SearchResultLink.scss';
 
 type SearchResultLinkProps = {
   movie: Movie;
-  onClick: Function;
+  onClick: () => void;
   activeAsModal: boolean;
 }
 
@@ -16,7 +16,7 @@ const SearchResultLink: FC<SearchResultLinkProps> = ({ movie, onClick, activeAsM
   const className = `search-result-link ${activeAsModal ? 'search-result-link--modal' : ''}`;
 
   return (
-    <Link className={className} to={`/movie/${movie.id}`} onClick={() => onClick()} >
+    <Link className={className} to={`/movie/${movie.id}`} onClick={onClick} >
       <div className="search-result-link__wrapper">
         <Image className="search-result-link__img" src={movie.posterUrl ?? ''} alt={movie.title} />
         <div className="search-result-link__content">
