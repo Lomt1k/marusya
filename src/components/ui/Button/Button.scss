@@ -56,23 +56,17 @@
     background-color: var(--color-bg-secondary-disabled);
   }
 
-  /* При лоадинге скрываем текст только визуально чтобы не менялась высота кнопки */
+  /* 
+    При лоадинге скрываем текст только визуально чтобы не менялась высота кнопки
+    В остальном состояние остается как при ховере
+   */
 
-  &--loading,
-  &--loading:hover,
-  &--loading:focus-visible {
+  &--loading[disabled] {
+    background-color: var(--color-white);
+    border-color: var(--color-black);
+    color: transparent;
     user-select: none;
-    background-color: var(--color-bg-primary);
-    border-color: var(--color-bg-primary);
-    color: var(--color-bg-primary);
-  }
-
-  &--loading.button--secondary,
-  &--loading:hover.button--secondary,
-  &--loading:focus-visible.button--secondary {
-    background-color: var(--color-bg-secondary);
-    border-color: var(--color-placeholder);
-    color: var(--color-bg-secondary);
+    transition: unset;
   }
 
 }

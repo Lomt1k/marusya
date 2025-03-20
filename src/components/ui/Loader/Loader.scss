@@ -14,6 +14,13 @@
     width: 32px;
   }
 
+  &--black {
+    $color: var(--color-black);
+    background:
+      radial-gradient(farthest-side, $color 94%, #0000) top/8px 8px no-repeat,
+      conic-gradient(#0000 30%, $color);
+  }
+
   @keyframes spin {
     100% {
       transform: rotate(1turn)

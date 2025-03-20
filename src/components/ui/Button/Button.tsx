@@ -11,16 +11,17 @@ type ButtonProps = {
   loading?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button: FC<ButtonProps> = ({ children, onClick, className, secondary, submit, loading, ...rest }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, className, secondary, submit, loading, disabled, ...rest }) => {
   return (
     <button
       className={`button ${secondary ? ' button--secondary' : ''} ${loading ? 'button--loading' : ''} ${className ?? ''}`}
       type={submit ? 'submit' : 'button'}
       onClick={onClick}
+      disabled={loading ? true : disabled}
       {...rest}
     >
       {children}
-      {loading && <div className='button__loader'><Loader small /></div>}
+      {loading && <div className='button__loader'><Loader small black /></div>}
     </button>
   )
 }
