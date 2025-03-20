@@ -19,7 +19,7 @@ const datas: NavLinkData[] = [
 
 const MainNav = () => {
   return (
-    <nav className='main-nav'>
+    <nav className='main-nav' aria-label='Основная навигация'>
       <ul className="main-nav__list">
         {datas.map(data =>
           <li key={data.path}>

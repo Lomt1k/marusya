@@ -12,6 +12,7 @@ const LazyMainPage = lazy(() => import('./pages/MainPage/MainPage'));
 const LazyGenresPage = lazy(() => import('./pages/GenresPage/GenresPage'));
 const LazyGenrePage = lazy(() => import('./pages/GenrePage/GenrePage'));
 const LazyMoviePage = lazy(() => import('./pages/MoviePage/MoviePage'));
+const LazyAccountPage = lazy(() => import('./pages/AccountPage/AccountPage'));
 
 function App() {
   useQuery({
@@ -30,6 +31,7 @@ function App() {
           <Route path='/genres' element={<LazyGenresPage />} />
           <Route path='/genres/:genre' element={<LazyGenrePage />} />
           <Route path='/movie/:movieId' element={<LazyMoviePage />} />
+          <Route path='/account' element={<LazyAccountPage />} />
         </Routes>
       </Suspense>
       <Footer />
