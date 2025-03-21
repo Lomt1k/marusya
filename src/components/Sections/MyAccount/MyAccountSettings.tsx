@@ -4,6 +4,8 @@ import Button from '../../ui/Button/Button';
 import { fetchLogout } from '../../../api/Auth';
 import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router';
+import MyAccountInfo from './MyAccountInfo';
+import IconEmail from '/src/assets/icons/email.svg?react';
 import './MyAccountSettings.scss';
 
 const MyAccountSettings = observer(() => {
@@ -22,7 +24,14 @@ const MyAccountSettings = observer(() => {
   return !user ? null : (
     <div className='my-account-settings'>
       <div className="my-account-settings__infos">
-        {/* TODO */}
+        <MyAccountInfo
+          title='Имя Фамилия'
+          text={`${user.name} ${user.surname}`}
+          iconContent={(user.name[0] + user.surname[0]).toUpperCase()} />
+        <MyAccountInfo
+          title='Электронная почта'
+          text={user.email}
+          iconContent={<IconEmail aria-hidden={true} width={24} height={24} />} />
       </div>
       <Button onClick={() => logoutMutation.mutate()} loading={logoutMutation.isPending}>
         Выйти из аккаунта

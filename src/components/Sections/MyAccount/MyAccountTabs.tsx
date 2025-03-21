@@ -11,12 +11,12 @@ export interface MyAccountTab {
 
 export const MyAccountTabs: MyAccountTab[] = [
   {
-    title: 'Избранные фильмы',
+    title: 'Избранное',
     icon: <IconFavorite width={24} hanging={24} aria-hidden={true} />,
     content: 'Favorites'
   },
   {
-    title: 'Настройки аккаунта',
+    title: 'Настройки',
     icon: <IconUser width={24} hanging={24} aria-hidden={true} />,
     content: <MyAccountSettings />
   },
