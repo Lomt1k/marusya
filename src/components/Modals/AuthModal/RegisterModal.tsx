@@ -13,6 +13,7 @@ import { fetchRegister, RegisterData, RegisterDataSchema } from "../../../api/Au
 import { useMutation } from "@tanstack/react-query";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import ModalsOverlay from "../ModalsOverlay";
 import './AuthModal.scss';
 
 type RegisterModalProps = {
@@ -41,26 +42,28 @@ const RegisterModal: FC<RegisterModalProps> = ({ onClickLogin, onSuccess }) => {
   const iconUser = <IconUser aria-hidden={true} width={24} height={24} />
 
   return (
-    <Modal onClickClose={() => RootStore.auth.setModalActive(false)}>
-      <form className="auth-modal" onSubmit={handleSubmit(({ email, password, name, surname }) => {
-        registerMutation.mutate({ email, password, name, surname });
-      })}>
-        <LogoDark className="auth-modal__logo" />
-        <div className="auth-modal__content">
-          <Heading dark level={4} className="auth-modal__heading">Регистрация</Heading>
-          <div className="auth-modal__inputs">
-            <Input {...register('email')} type='email' placeholder='Электронная почта' icon={iconEmail} error={errors.email?.message} />
-            <Input {...register('name')} type='text' placeholder='Имя' icon={iconUser} error={errors.name?.message} />
-            <Input {...register('surname')} type='text' placeholder='Фамилия' icon={iconUser} error={errors.surname?.message} />
-            <Input {...register('password')} type='password' placeholder='Пароль' icon={iconPassword} error={errors.password?.message} />
-            <Input {...register('passwordRepeat')} type='password' placeholder='Подтвердите пароль' icon={iconPassword} error={errors.passwordRepeat?.message} />
+    <ModalsOverlay>
+      <Modal onClickClose={() => RootStore.auth.setModalActive(false)}>
+        <form className="auth-modal" onSubmit={handleSubmit(({ email, password, name, surname }) => {
+          registerMutation.mutate({ email, password, name, surname });
+        })}>
+          <LogoDark className="auth-modal__logo" />
+          <div className="auth-modal__content">
+            <Heading dark level={4} className="auth-modal__heading">Регистрация</Heading>
+            <div className="auth-modal__inputs">
+              <Input {...register('email')} type='email' placeholder='Электронная почта' icon={iconEmail} error={errors.email?.message} />
+              <Input {...register('name')} type='text' placeholder='Имя' icon={iconUser} error={errors.name?.message} />
+              <Input {...register('surname')} type='text' placeholder='Фамилия' icon={iconUser} error={errors.surname?.message} />
+              <Input {...register('password')} type='password' placeholder='Пароль' icon={iconPassword} error={errors.password?.message} />
+              <Input {...register('passwordRepeat')} type='password' placeholder='Подтвердите пароль' icon={iconPassword} error={errors.passwordRepeat?.message} />
+            </div>
+            {registerMutation.error && <span className="auth-modal__error">{registerMutation.error.message}</span>}
+            <Button submit loading={registerMutation.isPending}>Создать аккаунт</Button>
+            <ButtonText dark onClick={onClickLogin} >У меня есть пароль</ButtonText>
           </div>
-          {registerMutation.error && <span className="auth-modal__error">{registerMutation.error.message}</span>}
-          <Button submit loading={registerMutation.isPending}>Создать аккаунт</Button>
-          <ButtonText dark onClick={onClickLogin} >У меня есть пароль</ButtonText>
-        </div>
-      </form>
-    </Modal>
+        </form>
+      </Modal>
+    </ModalsOverlay>
   )
 }
 

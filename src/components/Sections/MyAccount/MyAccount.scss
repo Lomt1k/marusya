@@ -41,10 +41,17 @@
     font-size: 24px;
     line-height: 32px;
     color: var(--color-primary);
+    position: relative;
+    z-index: 1;
 
     &:hover,
     &:focus-visible {
       color: var(--color-active);
+    }
+
+    @media (max-width: 374px) {
+      font-size: 18px;
+      line-height: 24px;
     }
 
     &--active {

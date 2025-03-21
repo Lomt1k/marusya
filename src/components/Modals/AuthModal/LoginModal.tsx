@@ -11,6 +11,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { fetchLogin, LoginData, LoginDataSchema } from "../../../api/Auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import ModalsOverlay from "../ModalsOverlay";
 import './AuthModal.scss';
 
 type LoginModalProps = {
@@ -39,22 +40,24 @@ const LoginModal: FC<LoginModalProps> = ({ onClickRegister }) => {
   const iconPassword = <IconPassword aria-hidden={true} width={24} height={24} />
 
   return (
-    <Modal onClickClose={() => RootStore.auth.setModalActive(false)}>
-      <form className="auth-modal" onSubmit={handleSubmit(({ email, password }) => {
-        loginMutation.mutate({ email, password })
-      })}>
-        <LogoDark className="auth-modal__logo" />
-        <div className="auth-modal__content">
-          <div className="auth-modal__inputs">
-            <Input {...register('email')} type='email' placeholder='Электронная почта' icon={iconEmail} error={errors.email?.message} />
-            <Input {...register('password')} type='password' placeholder='Пароль' icon={iconPassword} error={errors.password?.message} />
+    <ModalsOverlay>
+      <Modal onClickClose={() => RootStore.auth.setModalActive(false)}>
+        <form className="auth-modal" onSubmit={handleSubmit(({ email, password }) => {
+          loginMutation.mutate({ email, password })
+        })}>
+          <LogoDark className="auth-modal__logo" />
+          <div className="auth-modal__content">
+            <div className="auth-modal__inputs">
+              <Input {...register('email')} type='email' placeholder='Электронная почта' icon={iconEmail} error={errors.email?.message} />
+              <Input {...register('password')} type='password' placeholder='Пароль' icon={iconPassword} error={errors.password?.message} />
+            </div>
+            {loginMutation.error && <span className="auth-modal__error">{loginMutation.error.message}</span>}
+            <Button submit loading={loginMutation.isPending}>Войти</Button>
+            <ButtonText dark onClick={onClickRegister} >Регистрация</ButtonText>
           </div>
-          {loginMutation.error && <span className="auth-modal__error">{loginMutation.error.message}</span>}
-          <Button submit loading={loginMutation.isPending}>Войти</Button>
-          <ButtonText dark onClick={onClickRegister} >Регистрация</ButtonText>
-        </div>
-      </form>
-    </Modal>
+        </form>
+      </Modal>
+    </ModalsOverlay>
   )
 }
 

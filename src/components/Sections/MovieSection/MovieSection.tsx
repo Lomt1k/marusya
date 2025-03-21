@@ -5,14 +5,14 @@ import Image from '../../ui/Image/Image';
 import Skeleton from '../../ui/Skeleton/Skeleton';
 import Heading from '../../ui/Heading/Heading';
 import Rating from '../../ui/Rating/Rating';
-import Button from '../../ui/Button/Button';
 import ButtonLink from '../../ui/Button/ButtonLink';
 import IconMovie from '/src/assets/icons/movie.svg?react';
-import './MovieSection.scss';
 import FavoriteButton from './Buttons/FavoriteButton';
 import RefreshMovieButton from './Buttons/RefreshMovieButton';
 import StringHelper from '../../../utils/StringHelper';
 import MovieHelper from '../../../utils/MovieHelper';
+import TrailerButton from './Buttons/TrailerButton';
+import './MovieSection.scss';
 
 type MovieSectionProps = {
   movie: Movie | undefined;
@@ -54,7 +54,7 @@ const MovieSection: FC<MovieSectionProps> = ({ movie, isFetching, random }) => {
             <div className={"movie-section__buttons"}>
               {movie &&
                 <>
-                  <Button onClick={() => { }} >Трейлер</Button>
+                  <TrailerButton youtubeVideoId={movie.trailerYouTubeId} />
                   {random && <ButtonLink secondary to={`/movie/${movie.id}`}>О фильме</ButtonLink>}
                   <FavoriteButton movieId={movie.id} />
                   {random && <RefreshMovieButton />}
