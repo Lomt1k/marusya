@@ -11,7 +11,11 @@ export const ErrorResponseSchema = z.object({
   error: z.string()
 });
 
-export const handleErrorResponse = (response: AxiosResponse): void => {
+export const validateResponse = (response: AxiosResponse): void => {
+  if (response.status === 200) {
+    return;
+  }
+
   const result = ErrorResponseSchema.safeParse(response.data);
   if (result.data) {
     throw new Error(result.data.error);

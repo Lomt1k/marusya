@@ -1,5 +1,5 @@
 import { z, ZodError } from 'zod';
-import api from './api';
+import api, { validateResponse } from './api';
 
 export const MovieSchema = z.object({
   id: z.number(),
@@ -50,16 +50,19 @@ export const fetchMovie = async (id: number): Promise<Movie> => {
 
 export const fetchRandomMovie = async (): Promise<Movie> => {
   const response = await api.get('/movie/random');
+  validateResponse(response);
   return MovieSchema.parse(response.data);
 }
 
 export const fetchTopMovies = async (): Promise<Movie[]> => {
   const response = await api.get('/movie/top10');
+  validateResponse(response);
   return MoviesArraySchema.parse(response.data);
 }
 
 export const fetchGenres = async (): Promise<string[]> => {
   const response = await api.get('/movie/genres');
+  validateResponse(response);
   return GenresArraySchema.parse(response.data);
 }
 
@@ -67,6 +70,7 @@ export const fetchMoviesPage = async (genre: string, page: number): Promise<Movi
   const response = await api.get('/movie', {
     params: { genre, page, count: 10 }
   });
+  validateResponse(response);
   return MoviesArraySchema.parse(response.data);
 }
 
@@ -74,5 +78,6 @@ export const fetchMoviesByTitle = async (title: string): Promise<Movie[]> => {
   const response = await api.get('/movie', {
     params: { title, count: 5 }
   });
+  validateResponse(response);
   return MoviesArraySchema.parse(response.data);
 }
