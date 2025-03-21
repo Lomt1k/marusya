@@ -5,7 +5,7 @@ import { Movie, MoviesArraySchema } from "./Movie";
 export const fetchFavoriteMovies = async (): Promise<Movie[]> => {
   const response = await api.get('/favorites');
   validateResponse(response);
-  return MoviesArraySchema.parse(response);
+  return MoviesArraySchema.parse(response.data);
 }
 
 export const fetchAddMovieToFavorites = async (movieId: number): Promise<void> => {
