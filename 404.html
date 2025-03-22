@@ -1,0 +1,15 @@
+<script>
+  // Получаем текущий путь
+  const path = window.location.pathname;
+
+  // Проверяем, что путь начинается с /marusya
+  if (path.startsWith('/marusya')) {
+    // Убедимся, что мы не находимся уже на /marusya
+    if (path !== '/marusya/') {
+      // Заменяем текущий URL на /marusya/, чтобы React Router мог обработать маршрут
+      window.history.replaceState({}, '', '/marusya/');
+      // Перенаправляем на нужный путь
+      window.location.pathname = path;
+    }
+  }
+</script>
